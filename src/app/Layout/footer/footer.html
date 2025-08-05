@@ -1,0 +1,85 @@
+<div class="p-5 text-heading" data-aos="fade-up" data-aos-once="true">
+  <div class="footer">
+    <div
+      class="col-span-[2] my-2"
+      data-aos-once="true"
+      data-aos="fade-up"
+      data-aos-delay="50"
+    >
+      <div class="flex flex-col gap-y-5">
+        <img src="/logo.png" width="190" alt="Logo" />
+        <p>We're Grocery Shop, an innovative team of food supliers.</p>
+        <div class="font-medium flex flex-col gap-3">
+          <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+          <a href="mailto:keshav210305@gmail.com" class="text-hover"
+            >supportexample.com</a
+          >
+          <a href="tel:+91 9667167963" class="text-hover">+91 9667167963</a>
+        </div>
+      </div>
+    </div>
+    @for (link of links; track $index) {
+    <div
+      class="my-4"
+      data-aos-once="true"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="($index + 1) * 100"
+    >
+      <h1 class="quicksand text-[20px] font-bold mb-4">{{ link.title }}</h1>
+      <div>
+        @for (item of link.sublinks; track $index) {
+        <p class="mb-4">
+          <a routerLink="{{ item.route }}" class="text-hover">
+            {{ item.name }}</a
+          >
+        </p>
+        }
+      </div>
+    </div>
+    }
+    <div
+      class="my-4 col-span-2"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-once="true"
+    >
+      <h1 class="quicksand text-[20px] font-bold mb-4">Shop on The Go</h1>
+      <p class="text-[#828282] mb-4">MarketPro App is available. Get it now</p>
+      <div class="flex items-center gap-2.5">
+        <img class="mx-3" src="/barcode.gif" width="75" />
+        <div class="mx-3">
+          <div class="p-4 my-2 rounded-2xl btn-shadow cursor-pointer">
+            <img src="/google-play-4.svg" width="100" />
+          </div>
+          <div class="p-3 my-2 rounded-2xl btn-shadow cursor-pointer">
+            <img src="/available-on-the-app-store.svg" width="100" />
+          </div>
+        </div>
+      </div>
+      <div class="my-2">
+        <img src="/pay.png" />
+      </div>
+    </div>
+  </div>
+  <div
+    data-aos="fade-up"
+    data-aos-delay="600"
+    data-aos-once="true"
+    class="border-t-[1px] border-t-[#ecf1f9] py-5 flex justify-between items-center flex-col md:flex-row"
+  >
+    <p class="font-medium my-2 text-center md:text-start">
+      Copyright ©
+      <span class="text-[#2ABC79]">{{ date | date : "yyyy" }}</span> DevKeshav
+      All Rights Reserved
+    </p>
+    <div class="flex gap-3 my-2">
+      @for (item of socailLinks; track $index) {
+      <a [href]="item.link" target="_blank" class="mx-1">
+        <div class="btn-shadow p-2 cursor-pointer rounded-full socail-btn">
+          <img [src]="item.img" width="20px" />
+        </div>
+      </a>
+      }
+    </div>
+  </div>
+</div>

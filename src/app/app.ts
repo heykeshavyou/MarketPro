@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import * as AOS from 'aos';
+import { Footer } from "./Layout/footer/footer";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('MarketPro');
+export class App implements OnInit {
+  ngOnInit(){
+    AOS.init();
+  }
+  
 }
