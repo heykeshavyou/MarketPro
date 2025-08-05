@@ -37,3 +37,9 @@ body{
 .socail-btn{
   @apply hover:scale-110 hover:bg-[#1c799b] duration-200 transition-all text-[#1c799b] ;
 }
+.hover-h-text{
+    @apply hover:underline transition-all duration-200;
+}
+.drop-hover:hover .drop-menu{
+  @apply lg:block
+}

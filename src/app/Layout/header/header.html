@@ -1,1 +1,34 @@
-<p>header works!</p>
+<div class="bg-[#1c799b] flex text-white p-1 px-3 justify-between">
+  <p class="font-medium flex items-baseline">
+    <span class="me-2 hidden md:flex"> Until the end of the sale :</span>
+    <span class="me-2 flex md:hidden"> Sales End :</span>
+    {{ timer.hour() }}<span class="text-[10px] me-2"> Hours</span>
+    {{ timer.min() }}<span class="text-[10px] me-2"> Minutes</span>
+    {{ timer.sec() }}<span class="text-[10px]"> Sec.</span>
+  </p>
+  <div class="text-[14px] items-center hidden lg:flex">
+    <p>
+      Buy one get one free on <span class="text-[#ffcc53]">first order</span>
+    </p>
+    <span class="text-gray-400 mx-3">|</span>
+    <img src="/truck.svg" />
+    <a class="mx-2 hover-h-text">Track Your Order</a>
+  </div>
+  <div class="text-[14px] flex items-center">
+    <div class="flex">
+      <a class="hover-h-text mx-2 hidden lg:block">Order Tracking</a>
+      <a class="hover-h-text mx-2 hidden lg:block">About Us</a>
+    </div>
+    <div class="drop-hover relative">
+        <p class="">Eng</p>
+        <ul data-aos="fade-up" class="shadow rounded-[5px] transition-all duration-200 drop-menu z-10 hover:visible  hidden right-0 absolute p-5 bg-white text-black">
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+    </div>
+  
+  </div>
+</div>
