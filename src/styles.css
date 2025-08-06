@@ -41,5 +41,25 @@ body{
     @apply hover:underline transition-all duration-200;
 }
 .drop-hover:hover .drop-menu{
-  @apply lg:block
+  @apply block
 }
+.drop-hover:hover .dropname::after{
+  rotate: 180deg;
+}
+.dropname::after{
+    position: absolute;
+    content: "🢓";
+    height: 20px;
+    margin-left: 5px;
+    font-size: 20px;
+    transform: translateY(10%);
+    font-weight: 900;
+    transition: 0.2s linear;
+}
+:root {
+  --select2-selection-background: #ffffff; /* Light teal background */
+  --select2-selection-text-color: #000;
+--select2-selection-border-color: none;
+  --select2-option-highlighted-background: #1c799b; /* Darker teal on hover */
+}
+

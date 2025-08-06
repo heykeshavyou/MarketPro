@@ -19,16 +19,246 @@
       <a class="hover-h-text mx-2 hidden lg:block">Order Tracking</a>
       <a class="hover-h-text mx-2 hidden lg:block">About Us</a>
     </div>
-    <div class="drop-hover relative">
-        <p class="">Eng</p>
-        <ul data-aos="fade-up" class="shadow rounded-[5px] transition-all duration-200 drop-menu z-10 hover:visible  hidden right-0 absolute p-5 bg-white text-black">
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ul>
+    <div class="drop-hover relative mx-2">
+      <p class="dropname mx-2">Eng</p>
+      <ul
+        data-aos="fade-up"
+        class="shadow rounded-[5px] w-30 transition-all duration-200 drop-menu z-10 hover:visible hidden right-[-10px] absolute p-3 bg-white text-black"
+      >
+        @for (item of language; track $index) {
+        <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
+          <img [src]="item.img" width="20" class="shadow" /> {{ item.name }}
+        </li>
+        }
+      </ul>
     </div>
-  
+    <div class="drop-hover relative mx-2">
+      <p class="dropname mx-2">USD</p>
+      <ul
+        data-aos="fade-up"
+        class="shadow rounded-[5px] w-30 transition-all duration-200 drop-menu z-10 hover:visible hidden right-0 absolute p-3 bg-white text-black"
+      >
+        @for (item of currency; track $index) {
+        <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
+          <img [src]="item.img" width="20" class="shadow" />
+          {{ item.name | uppercase }}
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="shadow">
+  <div class="px-5 py-6 flex gap-2.5 items-center justify-between">
+    <div>
+      <div>
+        <img src="./logo.png" width="190" />
+      </div>
+    </div>
+    <div
+      class="p-1 hidden md:flex w-1/2 items-center border-1 text-[14px] gap-2.5 rounded-[5px] border-gray-300"
+    >
+      <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
+        <select2
+          style="border: none"
+          [data]="data"
+          value="1"
+          placeholder="Search"
+        >
+        </select2>
+      </div>
+      <div class="w-3/4">
+        <input
+          type="text"
+          class="w-[100%] focus-visible:outline-0 placeholder:text-gray-400"
+          placeholder="Search for products, categories or brands..."
+        />
+      </div>
+      <div class="bg-[#1c799b] p-3 rounded-[5px]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          fill="white"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </div>
+    </div>
+    <div>
+      <ul class="flex items-center gap-x-6">
+        <li class="md:hidden flex" (click)="SetSearch()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="20"
+            fill="black"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </li>
+        <li class="flex justify-center items-center gap-x-2 text-hover">
+          <svg
+            class="text-gray-700"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            fill="currentColor"
+            class="bi bi-person"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+            />
+          </svg>
+          <p class="hidden sm:block">Profile</p>
+        </li>
+        <li class="flex justify-center items-center gap-x-2 text-hover">
+          <div class="relative">
+            <svg
+              width="20"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 2.74805L7.28325 2.01133C5.5989 0.280067 2.51415 0.877695 1.40036 3.05284C0.876534 4.07583 0.75875 5.55246 1.71429 7.43758C2.63457 9.25313 4.54767 11.4265 8 13.7946C11.4523 11.4265 13.3654 9.25313 14.2857 7.43758C15.2413 5.55246 15.1235 4.07583 14.5996 3.05284C13.4859 0.877695 10.4011 0.280067 8.71675 2.01133L8 2.74805ZM8 15C-7.33313 4.86841 3.27876 -3.04087 7.82432 1.14308C7.88395 1.19797 7.94253 1.25493 8 1.314C8.05747 1.25494 8.11605 1.19797 8.17567 1.14309C12.7212 -3.04088 23.3331 4.8684 8 15Z"
+              />
+            </svg>
+            <span
+              class="text-[10px] size-4 absolute bottom-3 left-3 bg-[#1C799B] text-white p-1 rounded-full flex justify-center items-center"
+              >2</span
+            >
+          </div>
+
+          <p class="hidden sm:block">Wishlist</p>
+        </li>
+        <li class="flex justify-center items-center gap-x-2 text-hover">
+          <div class="relative">
+            <svg
+              width="20"
+              viewBox="0 0 15 15"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0.5C0 0.223858 0.223858 0 0.5 0H2C2.22943 0 2.42943 0.156149 2.48507 0.378732L2.89039 2H14.5C14.6487 2 14.7898 2.06622 14.8848 2.18068C14.9797 2.29514 15.0188 2.44595 14.9914 2.59214L13.4914 10.5921C13.4471 10.8286 13.2406 11 13 11H12H5H4C3.75939 11 3.55291 10.8286 3.50856 10.5921L2.01131 2.6068L1.60961 1H0.5C0.223858 1 0 0.776142 0 0.5ZM3.10246 3L4.41496 10H12.585L13.8975 3H3.10246ZM5 11C3.89543 11 3 11.8954 3 13C3 14.1046 3.89543 15 5 15C6.10457 15 7 14.1046 7 13C7 11.8954 6.10457 11 5 11ZM12 11C10.8954 11 10 11.8954 10 13C10 14.1046 10.8954 15 12 15C13.1046 15 14 14.1046 14 13C14 11.8954 13.1046 11 12 11ZM5 12C5.55228 12 6 12.4477 6 13C6 13.5523 5.55228 14 5 14C4.44772 14 4 13.5523 4 13C4 12.4477 4.44772 12 5 12ZM12 12C12.5523 12 13 12.4477 13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12Z"
+              />
+            </svg>
+            <span
+              class="text-[10px] size-4 absolute bottom-3 left-3 bg-[#1C799B] text-white p-1 rounded-full flex justify-center items-center"
+              >2</span
+            >
+          </div>
+          <p class="hidden sm:block">Cart</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t-1 border-t-gray-300 p-2 flex">
+    <div class="browsercategory p-2">
+      <div class="">
+        <button (click)="SetBroswer()"
+          class="bg-[#2ABC79] hover:bg-[#15803D] duration-300 transition-all cursor-pointer px-4 py-3 flex justify-between items-center gap-2.5 text-white rounded-[5px]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            fill="white"
+            class="bi bi-grid"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"
+            />
+          </svg>
+          <span>Browse Categories</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            fill="white"
+            class="bi bi-chevron-down arrowbrs transition-all duration-200"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class=""  >
+        <div
+          class="grid grid-cols-3 bg-white shadow-2xl duration-300 transition-all  absolute z-1 rounded-[10px] text-[12px] font-medium"[ngClass]="BroswerClass"
+        >
+          @for (item of Category; track $index) {
+          <div class="p-4 justify-center items-center flex flex-col">
+            <img [src]="item.img" width="50" />
+            <p>{{ item.name }}</p>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="bg-white h-dvh z-10 fixed w-[100%] top-0 p-5 transition-all duration-200"
+  [ngClass]="searchClass"
+>
+  <div class="flex justify-end" (click)="SetSearch()">
+    <div class="bg-white shadow p-2 rounded-full">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        fill="currentColor"
+        class="bi bi-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+        />
+      </svg>
+    </div>
+  </div>
+  <div class="my-5">
+    <div
+      class="p-1 flex items-center border-1 text-[14px] gap-2.5 rounded-[5px] border-gray-300"
+    >
+      <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
+        <select2
+          style="border: none"
+          [data]="data"
+          value="1"
+          placeholder="Search"
+        >
+        </select2>
+      </div>
+      <div class="w-3/4">
+        <input
+          type="text"
+          class="w-[100%] focus-visible:outline-0 placeholder:text-gray-400"
+          placeholder="Search for products, categories or brands..."
+        />
+      </div>
+      <div class="bg-[#1c799b] p-3 rounded-[5px]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          fill="white"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </div>
+    </div>
   </div>
 </div>
