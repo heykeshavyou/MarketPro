@@ -1,65 +1,83 @@
 @import "tailwindcss";
 @tailwind utilities;
 @font-face {
-    font-family: 'Quicksand';
-    src: url('./Assets/Font/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Quicksand";
+  src: url("./Assets/Font/Quicksand/Quicksand-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-  font-family: 'inter';
-  src: url('./assets/font/Inter/Inter-VariableFont_opsz\,wght.ttf');
+  font-family: "inter";
+  src: url("./assets/font/Inter/Inter-VariableFont_opsz\,wght.ttf");
 }
-.text-color{
+.text-color {
   color: #1c799b;
 }
-.bg-color{
+.bg-color {
   background-color: #1c799b;
 }
-.quicksand{
+.quicksand {
   font-family: "Quicksand", sans-serif;
 }
-body{
-    font-family: "Inter", sans-serif;
+body {
+  font-family: "Inter", sans-serif;
 }
-.text-heading{
+.text-heading {
   color: #121535;
 }
-.footer{
-  @apply grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-x-2 mb-20 ;
+.footer {
+  @apply grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-x-2 mb-20;
 }
-.text-hover{
+.text-hover {
   @apply hover:text-[#1c799b] transition-colors duration-200;
 }
-.btn-shadow{
+.btn-shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.socail-btn{
-  @apply hover:scale-110 hover:bg-[#1c799b] duration-200 transition-all text-[#1c799b] ;
+.socail-btn {
+  @apply hover:scale-110 hover:bg-[#1c799b] duration-200 transition-all text-[#1c799b];
 }
-.hover-h-text{
-    @apply hover:underline transition-all duration-200;
+.hover-h-text {
+  @apply hover:underline transition-all duration-200;
 }
-.drop-hover:hover .drop-menu{
-  @apply block
+.drop-hover:hover .drop-menu {
+  @apply opacity-100 translate-y-0 visible;
 }
-.drop-hover:hover .dropname::after{
+.drop-hover:hover .dropname::after {
   rotate: 180deg;
 }
-.dropname::after{
-    position: absolute;
-    content: "🢓";
-    height: 20px;
-    margin-left: 5px;
-    font-size: 20px;
-    transform: translateY(10%);
-    font-weight: 900;
-    transition: 0.2s linear;
+.dropname::after {
+  position: absolute;
+  content: "🢓";
+  height: 20px;
+  margin-left: 5px;
+  font-size: 20px;
+  transform: translateY(10%);
+  font-weight: 900;
+  transition: 0.2s linear;
 }
 :root {
   --select2-selection-background: #ffffff; /* Light teal background */
   --select2-selection-text-color: #000;
---select2-selection-border-color: none;
+  --select2-selection-border-color: none;
   --select2-option-highlighted-background: #1c799b; /* Darker teal on hover */
 }
-
+.broswer-drop-hover:hover .broswer-drop-menu {
+  @apply opacity-100 translate-y-0 visible;
+}
+.broswer-drop-hover:hover .broswer-drop-btn {
+  @apply hover:bg-[#15803D];
+}
+.broswer-drop-hover:hover .arrowbrs {
+  @apply rotate-180;
+}
+.link-drop:hover .link-drop-btn {
+  @apply rotate-180;
+}
+.link-drop:hover .link-text{
+  @apply text-[#1c799b];
+}
+.link-drop:hover .link-menu {
+  @apply opacity-100 translate-y-0 visible;
+}

@@ -23,9 +23,9 @@
       <p class="dropname mx-2">Eng</p>
       <ul
         data-aos="fade-up"
-        class="shadow rounded-[5px] w-30 transition-all duration-200 drop-menu z-10 hover:visible hidden right-[-10px] absolute p-3 bg-white text-black"
+        class="shadow rounded-[5px] w-30 transition-all duration-300 drop-menu z-10 invisible opacity-0 translate-y-10 block right-[-10px] absolute p-3 bg-white text-black"
       >
-        @for (item of language; track $index) {
+        @for (item of HomeDesign.language; track $index) {
         <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
           <img [src]="item.img" width="20" class="shadow" /> {{ item.name }}
         </li>
@@ -36,9 +36,9 @@
       <p class="dropname mx-2">USD</p>
       <ul
         data-aos="fade-up"
-        class="shadow rounded-[5px] w-30 transition-all duration-200 drop-menu z-10 hover:visible hidden right-0 absolute p-3 bg-white text-black"
+        class="shadow rounded-[5px] w-30 transition-all duration-300 invisible opacity-0 translate-y-10 drop-menu z-10 block right-0 absolute p-3 bg-white text-black"
       >
-        @for (item of currency; track $index) {
+        @for (item of HomeDesign.currency; track $index) {
         <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
           <img [src]="item.img" width="20" class="shadow" />
           {{ item.name | uppercase }}
@@ -61,7 +61,7 @@
       <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
         <select2
           style="border: none"
-          [data]="data"
+          [data]="HomeDesign.data"
           value="1"
           placeholder="Search"
         >
@@ -160,50 +160,132 @@
       </ul>
     </div>
   </div>
-  <div class="border-t-1 border-t-gray-300 p-2 flex">
-    <div class="browsercategory p-2">
-      <div class="">
-        <button (click)="SetBroswer()"
-          class="bg-[#2ABC79] hover:bg-[#15803D] duration-300 transition-all cursor-pointer px-4 py-3 flex justify-between items-center gap-2.5 text-white rounded-[5px]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            fill="white"
-            class="bi bi-grid"
-            viewBox="0 0 16 16"
+  <div
+    class="border-t-1 border-t-gray-300 flex items-center justify-between p-2 gap-5"
+  >
+    <div class="flex items-center">
+      <div class="broswer-drop-hover p-2">
+        <div class="">
+          <button
+            class="bg-[#2ABC79] broswer-drop-btn duration-300 transition-all cursor-pointer px-4 py-3 flex justify-between items-center gap-2.5 text-white rounded-[5px]"
           >
-            <path
-              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"
-            />
-          </svg>
-          <span>Browse Categories</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            fill="white"
-            class="bi bi-chevron-down arrowbrs transition-all duration-200"
-            viewBox="0 0 16 16"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              fill="white"
+              class="bi bi-grid"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"
+              />
+            </svg>
+            <span>Browse Categories</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              fill="white"
+              class="bi bi-chevron-down arrowbrs transition-all duration-200"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="">
+          <div
+            class="invisible border-1 border-[#BBF7D0] opacity-0 translate-y-10 grid grid-cols-3 p-2 broswer-drop-menu bg-white shadow-2xl duration-300 transition-all absolute z-1 rounded-[10px] text-[12px] font-medium"
           >
-            <path
-              fill-rule="evenodd"
-              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-            />
-          </svg>
-        </button>
-      </div>
-      <div class=""  >
-        <div
-          class="grid grid-cols-3 bg-white shadow-2xl duration-300 transition-all  absolute z-1 rounded-[10px] text-[12px] font-medium"[ngClass]="BroswerClass"
-        >
-          @for (item of Category; track $index) {
-          <div class="p-4 justify-center items-center flex flex-col">
-            <img [src]="item.img" width="50" />
-            <p>{{ item.name }}</p>
+            @for (item of Category; track $index) {
+            <div
+              class="p-5 sizes-[340px] rounded-[10px] justify-center items-center flex flex-col hover:bg-[#E4F1FF]"
+            >
+              <img [src]="item.img" width="50" />
+              <p>{{ item.name }}</p>
+            </div>
+            }
           </div>
-          }
         </div>
       </div>
+      <div class="hidden font-medium text-[#2d2727] text-[13px] md:flex">
+        @for (item of HomeDesign.NavigationLinks; track $index) {
+        <div class="mx-3 link-drop relative">
+          <div class="link-text flex items-center gap-x-2 cursor-pointer">
+            <p class="">{{ item.name }}</p>
+            @if (item.new) {
+            <div
+              class="tooltip left-4 bg-amber-300 p-1 rounded-[5px] animate-bounce absolute bottom-5"
+            >
+              New
+            </div>
+            }
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              fill="currentColor"
+              class="bi bi-chevron-down link-drop-btn transition-all duration-200"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </div>
+
+          <ul
+            class="bg-white shadow-2xl min-w-43 p-2 rounded-[5px] absolute z-2 link-menu duration-300 transition-all invisible opacity-0 translate-y-10"
+          >
+            @for(link of item.links;track $index){
+            <li
+              class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
+            >
+              <a [routerLink]="link.route">{{ link.text }}</a>
+            </li>
+            }
+          </ul>
+        </div>
+        }
+        <p><a routerLink="contactus" class="text-hover">Contact us</a></p>
+      </div>
+    </div>
+    <div class="lg:flex hidden gap-3 font-medium">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        fill="#1c799b"
+        class="bi bi-headset"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"
+        />
+      </svg>
+      <div>
+        <p>Need any Help! call Us</p>
+        <a href="tel:+91 9667167963" class="text-[#1c799b] hover-h-text"
+          >+91 9667167963</a
+        >
+      </div>
+    </div>
+    <div class="md:hidden flex shadow-2xl p-3 rounded-[5px] cursor-pointer">
+      <button (click)="SetHeader()" class="cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
@@ -212,7 +294,7 @@
   [ngClass]="searchClass"
 >
   <div class="flex justify-end" (click)="SetSearch()">
-    <div class="bg-white shadow p-2 rounded-full">
+    <div class="bg-white shadow cursor-pointer p-2 rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"
@@ -233,7 +315,7 @@
       <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
         <select2
           style="border: none"
-          [data]="data"
+          [data]="HomeDesign.data"
           value="1"
           placeholder="Search"
         >
@@ -259,6 +341,68 @@
           />
         </svg>
       </div>
+    </div>
+  </div>
+</div>
+<div
+
+  class="bg-white h-dvh z-10 fixed w-[100%] top-0 p-5 transition-all duration-200"
+  [ngClass]="HeaderClass"
+>
+  <div class="flex justify-end" (click)="SetHeader()">
+    <div class="bg-white shadow cursor-pointer p-2 rounded-full">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        fill="currentColor"
+        class="bi bi-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+        />
+      </svg>
+    </div>
+  </div>
+  <div class="my-5">
+    <div class="font-medium text-[#2d2727] text-2xl">
+      @for (item of HomeDesign.NavigationLinks; track $index) {
+      <div class="mx-3 link-drop relative my-3">
+        <div
+          class="link-text flex items-center justify-between gap-x-2 cursor-pointer"
+        >
+          <p class="">{{ item.name }}</p>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            fill="currentColor"
+            class="bi bi-chevron-down link-drop-btn transition-all duration-200"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </div>
+
+        <ul
+          class="bg-white shadow-2xl w-[100%] p-2 rounded-[5px] absolute z-2 link-menu duration-300 transition-all invisible opacity-0 translate-y-10"
+        >
+          @for(link of item.links;track $index){
+          <li (click)="SetHeader()"
+            class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
+          >
+            <a [routerLink]="link.route">{{ link.text }}</a>
+          </li>
+          }
+        </ul>
+      </div>
+      }
+      <p class="m-3">
+        <a routerLink="contactus" class="text-hover">Contact us</a>
+      </p>
     </div>
   </div>
 </div>
