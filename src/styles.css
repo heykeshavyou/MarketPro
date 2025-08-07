@@ -81,3 +81,6 @@ body {
 .link-drop:hover .link-menu {
   @apply opacity-100 translate-y-0 visible;
 }
+.product :hover img{
+  @apply scale-115;
+}

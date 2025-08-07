@@ -1,0 +1,38 @@
+<div class="m-10">
+  <h1 class="quicksand font-extrabold text-3xl mb-4">Flash Sales Today</h1>
+  <div>
+    <ngx-slick-carousel [config]="slideConfig">
+      @for (item of Product; track $index) {
+      <div ngxSlickItem class="mx-3 product cursor-pointer" data-aos-once="true" data-aos="fadeup" data-aos-delay="400" >
+        <div
+          class="border-gray-300 rounded-2xl border-1 hover:border-[#1c799b] p-5"
+        >
+          <div class="flex justify-end items-center z-10">
+            <button
+              (click)="ProductService.AddToCart(item.Id, 1)"
+              class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full font-medium text-[#1c799b] px-3 py-2"
+            >
+              <span>Add </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-cart"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <img [src]="item.Img" width="100" class=" aspect-square object-contain transition-all duration-300 "/>
+          </div>
+        </div>
+      </div>
+      }
+    </ngx-slick-carousel>
+  </div>
+</div>
