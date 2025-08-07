@@ -1,7 +1,79 @@
 <div class="p-8">
   <div
-    class="h-100 w-[100%] bg-[#e9ffff] relative bg-[url(/banner-bg.png)] rounded-2xl"
+    class="w-[100%] bg-[#e9ffff] relative bg-[url(/banner-bg.png)] rounded-2xl p-3"
   >
+    <ngx-slick-carousel [config]="slideConfig">
+      @for (item of slides; track $index) {
+      <div ngxSlickItem>
+        <div class="grid md:grid-cols-2 grid-cols-1 md:px-20 md:py-5">
+          <div class="p-5 flex items-center">
+            <div class="">
+              <p class="text-[#2ABC79] mb-2 font-medium">
+                Save up to 50% off on your first order
+              </p>
+              <div
+                class="mb-8 quicksand text-4xl md:text-5xl font-extrabold tracking-wider md:leading-15"
+              >
+                Daily Grocery Order and Get
+                <span class="text-[#1c799b]">Express</span>
+                Delivery
+              </div>
+              <div class="flex justify-start items-center gap-5">
+                <a routerLink="shop" class="">
+                  <button
+                    class="bg-[#1c799b] text-white  py-2 px-3 md:px-4 md:py-3 rounded-full text-[14px] flex items-center gap-2 cursor-pointer"
+                  >
+                    Explore Shop
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-cart"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                      />
+                    </svg>
+                  </button>
+                </a>
+                <p class="text-[14px] italic">Staring at</p>
+                <p class="text-[20px] text-[#dc2626] quicksand font-black">
+                  $60.90
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 flex justify-center items-center">
+            <img src="/banner-img3.png" />
+          </div>
+        </div>
+      </div>
+      }
+    </ngx-slick-carousel>
+    <div class="flex justify-center items-center">
+      <div class="bg-white p-2 rounded-full" >
+        <a href="#feature">
+        <div
+          class="bg-[#1c799b] p-4 rounded-full hover:bg-[#1c799b] cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            fill="white"
+            class="bi bi-arrow-down animate-bounce"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+            />
+          </svg>
+        </div>
+        </a>
 
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,26 @@
+<div class="px-5 my-10 relative" id="feature">
+  <div
+    class="bg-gradient-to-r md:block hidden to-transparent from-white z-10 m-4 left-0 size-[200px] absolute"
+    
+  ></div>
+  <ngx-slick-carousel [config]="slideConfig">
+    @for (item of ProductService.Categories; track $index) {
+    <div ngxSlickItem class="m-4 cursor-pointer">
+      <div
+        class="size-[140px] p-4 rounded-full flex justify-center items-center"
+        [ngClass]="item.Color"
+      >
+        <img
+          [src]="item.Img"
+          width="100px"
+          class="hover:scale-110 transition-all duration-200 aspect-square object-contain"
+        />
+      </div>
+      <p class="quicksand font-bold text-center my-4">{{ item.Name }}</p>
+    </div>
+    }
+  </ngx-slick-carousel>
+  <div
+    class="bg-gradient-to-l md:block hidden to-transparent from-white z-10 m-4 right-0 top-0 size-[200px] absolute"
+  ></div>
+</div>

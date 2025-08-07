@@ -1,0 +1,39 @@
+<div class="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-5 m-3 mb-20">
+  @for (item of PromotionalBanner; track $index) {
+  <div
+    class="p-8 rounded-[10px] grid grid-cols-2"
+    [ngClass]="item.img"
+    data-aos="fade-up"
+    data-aos-once="true"
+    [attr.data-aos-delay]="($index + 1) * 100"
+  >
+    <div>
+      <p class="text-[20px] quicksand font-bold my-3">{{ item.title }}</p>
+      <p class="text-[14px] italic my-3">
+        Staring at
+        <span class="text-[20px] text-[#dc2626] quicksand font-black">{{
+          item.price | currency : "INR"
+        }}</span>
+      </p>
+      <button
+        class="bg-[#1c799b] text-white font-medium py-2 px-3 md:px-4 md:py-3 rounded-full text-[14px] flex items-center gap-2 cursor-pointer"
+      >
+        Shop Now
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  }
+</div>

@@ -5,6 +5,7 @@ import { Select2, Select2Data } from 'ng-select2-component';
 import { CommonModule } from '@angular/common';
 import { HomeDesignService } from '../../Services/home-design-service';
 import { RouterLink } from '@angular/router';
+import { ProductService } from '../../Services/product-service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Header implements OnInit {
   private intervalSubscription: Subscription | undefined;
-  constructor(public timer: TimerService,public HomeDesign:HomeDesignService) {}
+  constructor(public timer: TimerService,public HomeDesign:HomeDesignService,public ProductService:ProductService) {}
   ngOnInit(): void {
     var date = new Date();
     this.timer.hour.set(date.getHours());
