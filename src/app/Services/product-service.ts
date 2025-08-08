@@ -8,10 +8,16 @@ import Product from '../Models/Product';
   providedIn: 'root',
 })
 export class ProductService {
-  Cart: Cart[] = [];
+  Cart: Cart[] = this.GetSavedData();
   Wishlist: Wishlist[] = [];
+  CartProduct: Product[] = [];
   CartCount = signal(this.Cart.length);
   WishlistCount = signal(this.Wishlist.length);
+  SubTotal=signal(0);
+  Delivery=signal(this.SubTotal()*10/100);
+  Taxs=signal(this.SubTotal()*18/100);
+  Discount=signal(0);
+  Total=signal(0);
   Categories: Category[] = [
     {
       Id: 1,
@@ -71,7 +77,7 @@ export class ProductService {
   Products: Product[] = [
     {
       Id: 1,
-      Name: 'WishCare Multi Peptide Anti Hairfall Shampoo',
+      Name: 'Hairfall Shampoo',
       Price: 499,
       OfferPrice: 391,
       Rating: 4.3,
@@ -84,7 +90,7 @@ export class ProductService {
     },
     {
       Id: 2,
-      Name: 'Ben Martin Men Jeans',
+      Name: 'Men Jeans',
       Price: 2999,
       OfferPrice: 699,
       Rating: 3.9,
@@ -136,7 +142,7 @@ export class ProductService {
     },
     {
       Id: 6,
-      Name: 'Apple iPhone 15 (128 GB) - Black',
+      Name: 'Apple iPhone 15',
       Price: 1917,
       OfferPrice: 927,
       Rating: 2.4,
@@ -304,7 +310,7 @@ export class ProductService {
     },
     {
       Id: 19,
-      Name: 'Earth Rhythm Reusable Makeup',
+      Name: 'Makeup Remover',
       Price: 1741,
       OfferPrice: 813,
       Rating: 3.1,
@@ -484,7 +490,7 @@ export class ProductService {
     },
     {
       Id: 33,
-      Name: 'Dual Tip Colorful Art Markers ',
+      Name: 'Dual Tip Markers ',
       Price: 1932,
       OfferPrice: 646,
       Rating: 4.9,
@@ -574,7 +580,7 @@ export class ProductService {
     },
     {
       Id: 40,
-      Name: 'Mccain Chilli Cheesy Nuggets, 250 g',
+      Name: 'Cheesy Nuggets',
       Price: 149,
       OfferPrice: 95,
       Rating: 1.7,
@@ -600,7 +606,7 @@ export class ProductService {
     },
     {
       Id: 42,
-      Name: '25W Type-C Travel Adaptor',
+      Name: 'Travel Adaptor',
       Price: 345,
       OfferPrice: 199,
       Rating: 4.0,
@@ -625,7 +631,7 @@ export class ProductService {
     },
     {
       Id: 44,
-      Name: 'Barbie® Doll, Kids Toys',
+      Name: 'Barbie® Doll',
       Price: 467,
       OfferPrice: 199,
       Rating: 2.6,
@@ -653,14 +659,74 @@ export class ProductService {
   AddToCart(Id: number, Quantity: number) {
     let index = this.Cart.findIndex((x) => x.ProductId == Id);
     if (index > -1) {
-      this.Cart[index].Quantity = Quantity;
+      this.Cart[index].Quantity += Quantity;
+      if (this.Cart[index].Quantity == 0) {
+        this.RemoveItem(Id);
+      }
     } else {
       let cart: Cart = {
         ProductId: Id,
         Quantity: Quantity,
       };
       this.Cart.push(cart);
-      this.CartCount.set(this.Cart.length);
     }
+    this.CartCount.set(this.Cart.length);
+    this.GetCartItem();
+    this.SaveCartLocalStorage();
+    this.GetCartTotal();
+  }
+  GetCartProduct(id: number) {
+    let item = this.Cart.find((x) => x.ProductId == id);
+    return item?.Quantity;
+  }
+  GetCategoryName(id: number) {
+    let item = this.Categories.find((x) => x.Id == id);
+    return item?.Name;
+  }
+  GetCartItem() {
+    this.CartProduct = [];
+    this.Cart.forEach((element) => {
+      let item = this.Products.find((x) => x.Id == element.ProductId);
+      if (item) {
+        this.CartProduct.push(item);
+      }
+    });
+  }
+  RemoveItem(id: number) {
+    let index = this.Cart.findIndex((x) => x.ProductId == id);
+    this.Cart.splice(index, 1);
+    this.CartCount.set(this.Cart.length);
+    this.GetCartItem();
+    this.SaveCartLocalStorage();
+  }
+  GetProductSubTotal(id: number) {
+    let CategoryItem = this.Cart.find((x) => x.ProductId == id);
+    let ProductItem = this.Products.find((x) => x.Id == id);
+    return CategoryItem == undefined || ProductItem == undefined
+      ? 0
+      : CategoryItem?.Quantity * ProductItem?.OfferPrice;
+  }
+  SaveCartLocalStorage() {
+    let data = JSON.stringify(this.Cart);
+    localStorage.setItem('Cart', data);
+  }
+  GetSavedData() {
+    let res = localStorage.getItem('Cart');
+    let data:Cart[] = res ? JSON.parse(res) : [];
+    return data;    
+  }
+  GetCartTotal(){
+    let subtotal=0;
+    let total=0;
+    this.CartProduct.forEach((item)=>{
+        var quantity= this.Cart.find(x=>x.ProductId==item.Id)?.Quantity;
+        subtotal+=(quantity==null)?0:quantity*item.OfferPrice;
+        total+=(quantity==null)?0:quantity*item.Price;
+    });
+    this.SubTotal.set(subtotal);
+    this.Discount.set(total-subtotal);
+    this.Delivery.set((subtotal*5/100));
+    this.Taxs.set((subtotal*18/100));
+    this.Total.set((this.SubTotal()+this.Taxs()+this.Delivery()));
   }
 }

@@ -28,6 +28,11 @@ export class FlashSale implements OnInit{
     centerMode: false,
     variableWidth: true,
     speed: 300,
+    pauseOnHover: true ,
     autoplaySpeed: 3000,
   };
+  IFCart(id:number){
+    var isCart= this.ProductService.Cart.findIndex(x=>x.ProductId==id);
+    return (isCart==-1)?false:true; 
+  }
 }
