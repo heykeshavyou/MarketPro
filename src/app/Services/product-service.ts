@@ -698,6 +698,7 @@ export class ProductService {
     this.CartCount.set(this.Cart.length);
     this.GetCartItem();
     this.SaveCartLocalStorage();
+    this.GetCartTotal();
   }
   GetProductSubTotal(id: number) {
     let CategoryItem = this.Cart.find((x) => x.ProductId == id);
