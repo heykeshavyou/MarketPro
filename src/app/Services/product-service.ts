@@ -1,6 +1,5 @@
 import { Injectable, signal } from '@angular/core';
 import Cart from '../Models/Cart';
-import Wishlist from '../Models/Wishlist';
 import Category from '../Models/Category';
 import Product from '../Models/Product';
 
@@ -9,15 +8,15 @@ import Product from '../Models/Product';
 })
 export class ProductService {
   Cart: Cart[] = this.GetSavedData();
-  Wishlist: Wishlist[] = [];
+  Wishlist: Product[] = this.GetWishListData();
   CartProduct: Product[] = [];
   CartCount = signal(this.Cart.length);
   WishlistCount = signal(this.Wishlist.length);
-  SubTotal=signal(0);
-  Delivery=signal(this.SubTotal()*10/100);
-  Taxs=signal(this.SubTotal()*18/100);
-  Discount=signal(0);
-  Total=signal(0);
+  SubTotal = signal(0);
+  Delivery = signal((this.SubTotal() * 10) / 100);
+  Taxs = signal((this.SubTotal() * 18) / 100);
+  Discount = signal(0);
+  Total = signal(0);
   Categories: Category[] = [
     {
       Id: 1,
@@ -656,6 +655,19 @@ export class ProductService {
       Quantity: 76,
     },
   ];
+  AddToWishlist(product: Product) {
+    if (this.Wishlist.includes(product)) {
+      this.Wishlist.splice(
+        this.Wishlist.findIndex((x) => x.Id == product.Id),
+        1
+      );
+    } else {
+      this.Wishlist.push(product);
+    }
+    this.WishlistCount.set(this.Wishlist.length);
+    this.SaveCartLocalStorage();
+  }
+
   AddToCart(Id: number, Quantity: number) {
     let index = this.Cart.findIndex((x) => x.ProductId == Id);
     if (index > -1) {
@@ -709,25 +721,47 @@ export class ProductService {
   }
   SaveCartLocalStorage() {
     let data = JSON.stringify(this.Cart);
+    let wishlist = JSON.stringify(this.Wishlist);
     localStorage.setItem('Cart', data);
+    localStorage.setItem('Wish', wishlist);
   }
   GetSavedData() {
     let res = localStorage.getItem('Cart');
-    let data:Cart[] = res ? JSON.parse(res) : [];
-    return data;    
+    let data: Cart[] = res ? JSON.parse(res) : [];
+    return data;
   }
-  GetCartTotal(){
-    let subtotal=0;
-    let total=0;
-    this.CartProduct.forEach((item)=>{
-        var quantity= this.Cart.find(x=>x.ProductId==item.Id)?.Quantity;
-        subtotal+=(quantity==null)?0:quantity*item.OfferPrice;
-        total+=(quantity==null)?0:quantity*item.Price;
+  GetWishListData() {
+    let res = localStorage.getItem('Wish');
+    let data: Product[] = res ? JSON.parse(res) : [];
+    return data;
+  }
+  GetCartTotal() {
+    let subtotal = 0;
+    let total = 0;
+    this.CartProduct.forEach((item) => {
+      var quantity = this.Cart.find((x) => x.ProductId == item.Id)?.Quantity;
+      subtotal += quantity == null ? 0 : quantity * item.OfferPrice;
+      total += quantity == null ? 0 : quantity * item.Price;
     });
     this.SubTotal.set(subtotal);
-    this.Discount.set(total-subtotal);
-    this.Delivery.set((subtotal*5/100));
-    this.Taxs.set((subtotal*18/100));
-    this.Total.set((this.SubTotal()+this.Taxs()+this.Delivery()));
+    this.Discount.set(total - subtotal);
+    this.Delivery.set((subtotal * 5) / 100);
+    this.Taxs.set((subtotal * 18) / 100);
+    this.Total.set(this.SubTotal() + this.Taxs() + this.Delivery());
+  }
+  IFCart(id: number) {
+    var isCart = this.Cart.findIndex((x) => x.ProductId == id);
+    return isCart == -1 ? false : true;
+  }
+  AvailableInWishlist(id: number) {
+    return this.Wishlist.findIndex((x) => x.Id == id) == -1 ? false : true;
+  }
+  RemoveItemWish(id: number) {
+    this.Wishlist.splice(
+      this.Wishlist.findIndex((x) => x.Id == id),
+      1
+    );
+    this.WishlistCount.set(this.Wishlist.length);
+    this.SaveCartLocalStorage();
   }
 }

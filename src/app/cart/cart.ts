@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../Services/product-service';
 import Product from '../Models/Product';
 import { CommonModule } from '@angular/common';
+import { Info } from "../Components/info/info";
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, Info],
   templateUrl: './cart.html',
   styleUrl: './cart.css'
 })
