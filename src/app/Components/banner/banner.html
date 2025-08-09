@@ -5,20 +5,21 @@
     <ngx-slick-carousel [config]="slideConfig">
       @for (item of slides; track $index) {
       <div ngxSlickItem>
-        <div class="grid md:grid-cols-2 grid-cols-1 md:px-20 md:py-5">
+        <div  class="grid md:grid-cols-2 grid-cols-1 md:px-20 md:py-5">
           <div class="p-5 flex items-center">
             <div class="">
-              <p class="text-[#2ABC79] mb-2 font-medium">
+              <p class="text-[#2ABC79] mb-2 font-medium" data-aos-easing="ease-in" data-aos="fade-right" data-aos-delay="200">
                 Save up to 50% off on your first order
               </p>
               <div
+              data-aos-easing="ease-in" data-aos="fade-right" data-aos-delay="300"
                 class="mb-8 quicksand text-4xl md:text-5xl font-extrabold tracking-wider md:leading-15"
               >
                 Daily Grocery Order and Get
                 <span class="text-[#1c799b]">Express</span>
                 Delivery
               </div>
-              <div class="flex justify-start items-center gap-5">
+              <div class="flex justify-start items-center gap-5" data-aos-easing="ease-in" data-aos="fade-right" data-aos-delay="400">
                 <a routerLink="shop" class="">
                   <button
                     class="bg-[#1c799b] text-white  py-2 px-3 md:px-4 md:py-3 rounded-full text-[14px] flex items-center gap-2 cursor-pointer"
@@ -46,7 +47,7 @@
             </div>
           </div>
           <div class="p-5 flex justify-center items-center">
-            <img src="/banner-img3.png" />
+            <img  data-aos-easing="ease-in" data-aos="zoom-in" data-aos-delay="400" src="/banner-img3.png" />
           </div>
         </div>
       </div>

@@ -1,155 +1,167 @@
 <div class="m-5 p-5">
-  <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
-    @if(ProductService.Cart.length>0){
-    <div class="border-1 border-gray-300 rounded-[10px] p-4 col-span-3">
-      @for (item of ProductService.CartProduct; track $index) {
-      <div
-        class="m-2 my-4 border-b-1 border-b-gray-300 md:p-3 py-3 grid lg:grid-cols-2 grid-cols-1"
-      >
-        <div class="flex items-center">
-          <div
-            class="border-1 border-gray-300 m-3 size-[150px] flex justify-center items-center rounded-[5px]"
-          >
-            <img
-              [src]="item.Img"
-              width="125"
-              class="aspect-square object-contain"
-            />
+  <div class="grid grid-cols-1 lg:grid-cols-5 gap-y-5">
+    <div
+      class="col-span-3 lg:mx-3"
+      data-aos="fade-up"
+      data-aos-delay="300"
+      data-once="true"
+    >
+      @if(ProductService.Cart.length>0){
+      <div class="border-1 border-gray-300 rounded-[10px] p-4">
+        @for (item of ProductService.CartProduct; track $index) {
+        <div
+          class="m-2 my-4 border-b-1 border-b-gray-300 md:p-3 py-3 grid lg:grid-cols-2 grid-cols-1"
+        >
+          <div class="flex items-center">
+            <div
+              class="border-1 border-gray-300 m-3 size-[150px] flex justify-center items-center rounded-[5px]"
+            >
+              <img
+                [src]="item.Img"
+                width="125"
+                class="aspect-square object-contain"
+              />
+            </div>
+            <div class="md:p-5 p-2">
+              <p class="quicksand font-black my-2 hover:text-[#1c799b]">
+                {{ item.Name }}
+              </p>
+              <div class="my-2 flex justify-start items-center">
+                <p
+                  class="text-[12px] md:text-[16px] me-3 font-medium text-gray-400 line-through"
+                >
+                  {{ item.Price | currency : "INR" }}
+                </p>
+                <p class="text-[12px] md:text-[16px] font-medium">
+                  {{ item.OfferPrice | currency : "INR" }}
+                </p>
+              </div>
+              <div class="text-[14px] font-bold text-gray-500 flex items-start">
+                <span class="me-1 flex justify-center items-baseline gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    fill="#f0b100"
+                    class="bi bi-star-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    /></svg
+                  >{{ item.Rating.toFixed(1) }}
+                </span>
+                <span class="mx-3 font-light">|</span>
+                <span
+                  class="mx-1 flex justify-center items-center font-normal"
+                  >{{ item.RatingCount }}</span
+                >
+              </div>
+              <div class="my-3">
+                <a
+                  class="bg-gray-200 px-3 py-2 text-[10px] md:text-[14px] rounded-[5px] cursor-pointer font-medium hover:text-white transition-all duration-300 hover:bg-[#1c799b]"
+                >
+                  {{ ProductService.GetCategoryName(item.CategoryId) }}
+                </a>
+              </div>
+            </div>
           </div>
           <div class="md:p-5 p-2">
-            <p class="quicksand font-black my-2 hover:text-[#1c799b]">
-              {{ item.Name }}
-            </p>
-            <div class="my-2 flex justify-start items-center">
-              <p
-                class="text-[12px] md:text-[16px] me-3 font-medium text-gray-400 line-through"
-              >
-                {{ item.Price | currency : "INR" }}
-              </p>
-              <p class="text-[12px] md:text-[16px] font-medium">
-                {{ item.OfferPrice | currency : "INR" }}
-              </p>
-            </div>
-            <div class="text-[14px] font-bold text-gray-500 flex items-start">
-              <span class="me-1 flex justify-center items-baseline gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  fill="#f0b100"
-                  class="bi bi-star-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                  /></svg
-                >{{ item.Rating.toFixed(1) }}
-              </span>
-              <span class="mx-3 font-light">|</span>
-              <span class="mx-1 flex justify-center items-center font-normal">{{
-                item.RatingCount
-              }}</span>
-            </div>
-            <div class="my-3">
-              <a
-                class="bg-gray-200 px-3 py-2 text-[10px] md:text-[14px] rounded-[5px] cursor-pointer font-medium hover:text-white transition-all duration-300 hover:bg-[#1c799b]"
-              >
-                {{ ProductService.GetCategoryName(item.CategoryId) }}
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="md:p-5 p-2">
-          <div class="flex justify-between items-center my-3">
-            <div
-              class="border-1 border-gray-300 flex w-[120px] h-[40px] justify-evenly md:mx-5"
-            >
+            <div class="flex justify-between items-center my-3">
               <div
-                class="size-1/3 h-[100%] hover:bg-[#1c799b] hover:text-white"
+                class="border-1 border-gray-300 flex w-[120px] h-[40px] justify-evenly md:mx-5"
               >
-                <button
-                  (click)="ProductService.AddToCart(item.Id, -1)"
-                  class="flex items-center justify-center w-[100%] h-[100%]"
+                <div
+                  class="size-1/3 h-[100%] hover:bg-[#1c799b] hover:text-white"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    fill="currentColor"
-                    class="bi bi-dash"
-                    viewBox="0 0 16 16"
+                  <button
+                    (click)="ProductService.AddToCart(item.Id, -1)"
+                    class="flex items-center justify-center w-[100%] h-[100%]"
                   >
-                    <path
-                      d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
-                    />
-                  </svg>
-                </button>
-              </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      fill="currentColor"
+                      class="bi bi-dash"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
+                      />
+                    </svg>
+                  </button>
+                </div>
 
-              <span class="size-1/3 h-[100%]">
-                <span
-                  class="flex items-center w-[100%] h-[100%] justify-center"
+                <span class="size-1/3 h-[100%]">
+                  <span
+                    class="flex items-center w-[100%] h-[100%] justify-center"
+                  >
+                    {{ ProductService.GetCartProduct(item.Id) }}
+                  </span></span
                 >
-                  {{ ProductService.GetCartProduct(item.Id) }}
-                </span></span
-              >
-              <div
-                class="size-1/3 h-[100%] hover:bg-[#1c799b] hover:text-white"
-              >
+                <div
+                  class="size-1/3 h-[100%] hover:bg-[#1c799b] hover:text-white"
+                >
+                  <button
+                    (click)="ProductService.AddToCart(item.Id, 1)"
+                    class="flex items-center w-[100%] h-[100%] justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      fill="currentColor"
+                      class="bi bi-plus"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="md:mx-5">
                 <button
-                  (click)="ProductService.AddToCart(item.Id, 1)"
-                  class="flex items-center w-[100%] h-[100%] justify-center"
+                  class="hover:text-red-600 flex justify-between gap-2.5 items-center cursor-pointer"
+                  (click)="ProductService.RemoveItem(item.Id)"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
+                    width="25"
                     fill="currentColor"
-                    class="bi bi-plus"
+                    class="bi bi-x"
                     viewBox="0 0 16 16"
                   >
                     <path
-                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
                     />
                   </svg>
+                  <span class="font-black quicksand">Remove</span>
                 </button>
               </div>
             </div>
-            <div class="md:mx-5">
-              <button
-                class="hover:text-red-600 flex justify-between gap-2.5 items-center cursor-pointer"
-                (click)="ProductService.RemoveItem(item.Id)"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  fill="currentColor"
-                  class="bi bi-x"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                  />
-                </svg>
-                <span class="font-black quicksand">Remove</span>
-              </button>
+            <div
+              class="border-b-4 text-2xl quicksand font-black border-b-black my-3 mt-5 md:p-5 p-2 flex justify-between"
+            >
+              <p class="">Subtotal</p>
+              <p class="text-[#2abc79]">
+                {{
+                  ProductService.GetProductSubTotal(item.Id) | currency : "INR"
+                }}
+              </p>
             </div>
           </div>
-          <div
-            class="border-b-4 text-2xl quicksand font-black border-b-black my-3 mt-5 md:p-5 p-2 flex justify-between"
-          >
-            <p class="">Subtotal</p>
-            <p class="text-[#2abc79]">
-              {{
-                ProductService.GetProductSubTotal(item.Id) | currency : "INR"
-              }}
-            </p>
-          </div>
         </div>
+        }
       </div>
       }
     </div>
-    }
 
     <div
-      class="border-1 quicksand border-gray-300 rounded-[10px] col-span-2 p-4 h-min"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-once="true"
+      style="width: 100%"
+      class="border-1 lg:mx-3 quicksand border-gray-300 rounded-[10px] col-span-2 p-4 h-min"
     >
       <p class="text-2xl font-bold">Cart Total</p>
       <div class="p-3 bg-[#f1f1f1] my-5 rounded-[10px]">
@@ -178,15 +190,19 @@
           </p>
         </div>
       </div>
-      <div class="p-3 font-black bg-[#f1f1f1] my-5 rounded-[10px] text-2xl flex justify-between items-center">
+      <div
+        class="p-3 font-black bg-[#f1f1f1] my-5 rounded-[10px] text-2xl flex justify-between items-center"
+      >
         <p class="">Total</p>
         <p>
           {{ ProductService.Total() | currency : "INR" }}
         </p>
       </div>
       <div class="mt-10">
-        <button class="px-4 py-3 quicksand font-black text-white bg-[#1c799b] w-[100%] rounded-[10px] cursor-pointer active:scale-95">
-            Proceed to checkout
+        <button
+          class="px-4 py-3 quicksand font-black text-white bg-[#1c799b] w-[100%] rounded-[10px] cursor-pointer active:scale-95"
+        >
+          Proceed to checkout
         </button>
       </div>
     </div>
