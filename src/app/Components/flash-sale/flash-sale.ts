@@ -3,9 +3,10 @@ import { ProductService } from '../../Services/product-service';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CommonModule } from '@angular/common';
 import Product from '../../Models/Product';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-flash-sale',
-  imports: [SlickCarouselModule, CommonModule],
+  imports: [SlickCarouselModule, CommonModule,RouterLink],
   templateUrl: './flash-sale.html',
   styleUrl: './flash-sale.css'
 })

@@ -1,0 +1,253 @@
+<div class="p-3 grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 md:m-10 m-3 gap-5">
+  <div class="md:col-span-2 md:order-1">
+    <div>
+      <div
+        class="border-1 border-gray-300 p-10 rounded-[10px] flex items-center justify-center"
+      >
+        <img
+          [src]="product?.Img"
+          class="aspect-square object-contain"
+          width="400"
+        />
+      </div>
+      <div class="flex gap-2.5 my-2.5">
+        <div
+          class="border-1 border-gray-300 p-5 rounded-[10px] flex items-center justify-center"
+        >
+          <img
+            [src]="product?.Img"
+            class="aspect-square object-contain"
+            width="100"
+          />
+        </div>
+        <div
+          class="border-1 border-gray-300 p-5 rounded-[10px] flex items-center justify-center"
+        >
+          <img
+            [src]="product?.Img"
+            class="aspect-square object-contain"
+            width="100"
+          />
+        </div>
+        <div
+          class="border-1 border-gray-300 p-5 rounded-[10px] flex items-center justify-center"
+        >
+          <img
+            [src]="product?.Img"
+            class="aspect-square object-contain"
+            width="100"
+          />
+        </div>
+        <div
+          class="border-1 border-gray-300 p-5 rounded-[10px] flex items-center justify-center"
+        >
+          <img
+            [src]="product?.Img"
+            class="aspect-square object-contain"
+            width="100"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="md:col-span-2 md:order-3 lg:order-2">
+    <h1 class="quicksand font-black text-3xl">{{ product?.Name }}</h1>
+    <div class="my-3 text-[13px] flex gap-2.5 items-center font-medium">
+      <span class="flex gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          fill="orange"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          fill="orange"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          fill="orange"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          fill="orange"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          fill="orange"
+          class="bi bi-star-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+          />
+        </svg>
+      </span>
+      <span class=""> {{ product?.Rating }} Star Rating </span>
+      <span class="text-gray-400"> ({{ product?.RatingCount }}) </span>
+    </div>
+    <hr class="my-5 text-gray-300" />
+    <p class="text-[14px] text-gray-600">
+      Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada
+      tincidunt. Class aptent taciti sociosqu ad litora torquent
+    </p>
+    <div class="my-4 flex gap-2.5 items-baseline">
+      <p class="text-2xl text-gray-400 quicksand font-black line-through">
+        {{ product?.Price | currency : "INR" }}
+      </p>
+
+      <p class="text-3xl quicksand font-black">
+        {{ product?.OfferPrice | currency : "INR" }}
+      </p>
+    </div>
+    <hr class="my-5 text-gray-300" />
+    <div class="bg-[#f3faf2] p-4 rounded-[10px] text-[14px]">
+      <div class="flex gap-5 items-center">
+        <p class="text-[#1c799b]">Special Offer:</p>
+        <div class="text-[12px] flex gap-2.5 items-center">
+          <p
+            class="p-1 size-6 bg-white border border-[#1c799b] rounded-[5px] flex items-center justify-center"
+          >
+            {{ timer.hour() }}
+          </p>
+          <p
+            class="p-1 size-6 bg-white border border-[#1c799b] rounded-[5px] flex items-center justify-center"
+          >
+            {{ timer.min() }}
+          </p>
+          <p
+            class="p-1 size-6 bg-white border border-[#1c799b] rounded-[5px] flex items-center justify-center"
+          >
+            {{ timer.sec() }}
+          </p>
+        </div>
+      </div>
+      <p class="text-[12px] mt-4">Remains untill the end of the offer</p>
+    </div>
+    <div class="my-3 flex gap-2.5 items-center">
+      <div class="my-3 bg-white rounded-full shadow p-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          fill="#1c799b"
+          class="bi bi-lightning-charge-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"
+          />
+        </svg>
+      </div>
+      <p class="quicksand font-black">Products are almost sold out</p>
+    </div>
+    <div class="h-2 bg-gray-300 rounded-full">
+      <div
+        class="bg-[#1c799b] h-[100%] rounded-full"
+        [ngStyle]="{ width: product?.Quantity + '%' }"
+      ></div>
+    </div>
+    <p class="text-[14px] my-2">Available only: {{ product?.Quantity }}</p>
+    <div class="my-5 flex  justify-between items-center">
+      @if (productService.IFCart(product?.Id ?? 0)) {
+      <button
+        class="bg-[#e3f4fa] scale-110 flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-dash"
+          viewBox="0 0 16 16"
+          (click)="productService.AddToCart(product?.Id ?? 0, -1)"
+        >
+          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+        </svg>
+        <span>{{ productService.GetCartProduct(product?.Id ?? 0) }}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-plus"
+          viewBox="0 0 16 16"
+          (click)="productService.AddToCart(product?.Id ?? 0, 1)"
+        >
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+          />
+        </svg>
+      </button>
+      }@else{
+      <button
+        (click)="productService.AddToCart(product?.Id ?? 0, 1)"
+        class="bg-[#e3f4fa] scale-110 flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
+      >
+        <span>Add </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          fill="currentColor"
+          class="bi bi-cart"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+          />
+        </svg>
+      </button>
+      }
+      <button
+        [ngClass]="{
+          'text-white bg-[#1c799b]': productService.AvailableInWishlist(
+            product?.Id ?? 0
+          )
+        }"
+        (click)="productService.AddToWishlist(product!)"
+        class="hover:bg-[#1c799b] bg-[#e3f4fA] cursor-pointer duration-300 p-3  text-[#1c799b]  rounded-full flex justify-center items-center hover:text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          fill="currentColor"
+          class="bi bi-heart"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+          />
+        </svg>
+      </button>
+    </div>
+        <hr class="my-5 text-gray-300" />
+
+  </div>
+  <div class="md:col-span-1 md:order-2 lg:order-3"></div>
+</div>

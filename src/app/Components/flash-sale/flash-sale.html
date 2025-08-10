@@ -86,56 +86,58 @@
             </button>
             }
           </div>
-          <div class="size-[160px] flex justify-center items-center">
-            <img
-              [src]="item.Img"
-              width="130"
-              class="aspect-square object-contain transition-all duration-300"
-            />
-          </div>
-          <div class="my-2 flex justify-start items-center">
-            <p class="text-[12px] md:text-[16px] font-medium">
-              {{ item.OfferPrice | currency : "INR" }}
-            </p>
-            <p
-              class="text-[12px] md:text-[16px] mx-3 font-medium text-gray-400 line-through"
-            >
-              {{ item.Price | currency : "INR" }}
-            </p>
-          </div>
-          <div class="text-[12px] font-bold text-gray-500 flex items-start">
-            <span class="me-1 flex justify-center items-baseline gap-1"
-              >{{ item.Rating.toFixed(1) }}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                fill="#f0b100"
-                class="bi bi-star-fill"
-                viewBox="0 0 16 16"
+          <a [routerLink]="['/product', item.Id!]">
+            <div class="size-[160px] flex justify-center items-center">
+              <img
+                [src]="item.Img"
+                width="130"
+                class="aspect-square object-contain transition-all duration-300"
+              />
+            </div>
+            <div class="my-2 flex justify-start items-center">
+              <p class="text-[12px] md:text-[16px] font-medium">
+                {{ item.OfferPrice | currency : "INR" }}
+              </p>
+              <p
+                class="text-[12px] md:text-[16px] mx-3 font-medium text-gray-400 line-through"
               >
-                <path
-                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                /></svg
-            ></span>
+                {{ item.Price | currency : "INR" }}
+              </p>
+            </div>
+            <div class="text-[12px] font-bold text-gray-500 flex items-start">
+              <span class="me-1 flex justify-center items-baseline gap-1"
+                >{{ item.Rating.toFixed(1) }}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  fill="#f0b100"
+                  class="bi bi-star-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  /></svg
+              ></span>
 
-            <span class="mx-1 flex justify-center items-center"
-              >({{ item.RatingCount }})</span
-            >
-          </div>
-          <div>
-            <p class="quicksand font-black my-2 hover:text-[#1c799b]">
-              {{ item.Name }}
-            </p>
-          </div>
-          <div class="h-1 bg-gray-300 rounded-full">
-            <div
-              class="bg-[#1c799b] h-[100%] rounded-full"
-              [ngStyle]="{ width: item.Quantity + '%' }"
-            ></div>
-          </div>
-          <div class="mt-2 text-[12px] font-medium text-gray-700">
-            Sold: {{ 100 - item.Quantity }}/100
-          </div>
+              <span class="mx-1 flex justify-center items-center"
+                >({{ item.RatingCount }})</span
+              >
+            </div>
+            <div>
+              <p class="quicksand font-black my-2 hover:text-[#1c799b]">
+                {{ item.Name }}
+              </p>
+            </div>
+            <div class="h-1 bg-gray-300 rounded-full">
+              <div
+                class="bg-[#1c799b] h-[100%] rounded-full"
+                [ngStyle]="{ width: item.Quantity + '%' }"
+              ></div>
+            </div>
+            <div class="mt-2 text-[12px] font-medium text-gray-700">
+              Sold: {{ 100 - item.Quantity }}/100
+            </div>
+          </a>
         </div>
       </div>
       }

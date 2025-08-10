@@ -1,21 +1,24 @@
 <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
   @for (item of ProductService.Wishlist; track $index) {
   <div
-  data-aos="fade-up"
-  [attr.data-aos-delay]="($index+1)*100"
-  data-aos-once="true"
+    data-aos="fade-up"
+    [attr.data-aos-delay]="($index + 1) * 100"
+    data-aos-once="true"
     class="m-2 my-4 border-1 border-gray-300 rounded-[10px] grid grid-cols-1"
   >
     <div class="flex items-center">
-      <div
-        class="border-1  w-1/3 border-gray-300 m-3 size-[165px] flex justify-center items-center rounded-[5px]"
-      >
-        <img
-          [src]="item.Img"
-          width="130"
-          class="aspect-square object-contain"
-        />
-      </div>
+     
+        <div
+          class="border-1 w-1/3 border-gray-300 m-3 size-[165px] flex justify-center items-center rounded-[5px]"
+        > <a [routerLink]="['/product', item.Id]">
+          <img
+            [src]="item.Img"
+            width="130"
+            class="aspect-square object-contain"
+          />     </a>
+        </div>
+ 
+
       <div class="my-3 w-2/3">
         <p class="quicksand font-black my-2 hover:text-[#1c799b]">
           {{ item.Name }}
@@ -56,89 +59,86 @@
             {{ ProductService.GetCategoryName(item.CategoryId) }}
           </a>
         </div>
-            <div class="">
-      <div class="flex justify-end items-center mx-3 mb-3 ">
-        <div class="mx-2">
-          <button
-            class="hover:text-red-600 flex justify-between gap-2.5 items-center cursor-pointer"
-            (click)="ProductService.RemoveItemWish(item.Id)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              fill="currentColor"
-              class="bi bi-x"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-              />
-            </svg>
-            <span class="font-black quicksand">Remove</span>
-          </button>
-        </div>
-        <div class="mx-2">
-          @if (ProductService.IFCart(item.Id)) {
-          <button
-            class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-dash"
-              viewBox="0 0 16 16"
-              (click)="ProductService.AddToCart(item.Id, -1)"
-            >
-              <path
-                d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
-              />
-            </svg>
-            <span>{{ ProductService.GetCartProduct(item.Id) }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-plus"
-              viewBox="0 0 16 16"
-              (click)="ProductService.AddToCart(item.Id, 1)"
-            >
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
-              />
-            </svg>
-          </button>
-          }@else{
-          <button
-            (click)="ProductService.AddToCart(item.Id, 1)"
-            class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
-          >
-            <span>Add </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-cart"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-              />
-            </svg>
-          </button>
-          }
+        <div class="">
+          <div class="flex justify-end items-center mx-3 mb-3">
+            <div class="mx-2">
+              <button
+                class="hover:text-red-600 flex justify-between gap-2.5 items-center cursor-pointer"
+                (click)="ProductService.RemoveItemWish(item.Id)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+                <span class="font-black quicksand">Remove</span>
+              </button>
+            </div>
+            <div class="mx-2">
+              @if (ProductService.IFCart(item.Id)) {
+              <button
+                class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-dash"
+                  viewBox="0 0 16 16"
+                  (click)="ProductService.AddToCart(item.Id, -1)"
+                >
+                  <path
+                    d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
+                  />
+                </svg>
+                <span>{{ ProductService.GetCartProduct(item.Id) }}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-plus"
+                  viewBox="0 0 16 16"
+                  (click)="ProductService.AddToCart(item.Id, 1)"
+                >
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                  />
+                </svg>
+              </button>
+              }@else{
+              <button
+                (click)="ProductService.AddToCart(item.Id, 1)"
+                class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
+              >
+                <span>Add </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>
-      </div>
-    </div>
-
   </div>
   }
 </div>
-<app-info>
-
-</app-info>
+<app-info> </app-info>

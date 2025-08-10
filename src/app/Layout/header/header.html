@@ -250,7 +250,11 @@
             <li
               class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
             >
-              <a [routerLink]="link.route">{{ link.text }}</a>
+              <a [routerLink]="link.route" class="w-[100%]">
+                <div>
+                  {{ link.text }}
+                </div>
+              </a>
             </li>
             }
           </ul>
