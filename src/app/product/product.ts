@@ -6,16 +6,17 @@ import { CommonModule } from '@angular/common';
 import { TimerService } from '../Services/timer-service';
 import { Info } from '../Components/info/info';
 import { DomSanitizer } from '@angular/platform-browser';
-import { FlashSale } from "../Components/flash-sale/flash-sale";
+import { FlashSale } from '../Components/flash-sale/flash-sale';
+import { NewsLetter } from "../Components/news-letter/news-letter";
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule, Info, FlashSale],
+  imports: [CommonModule, Info, FlashSale, NewsLetter],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
 export class Product implements OnInit {
-  IsDes=signal(true);
+  IsDes = signal(true);
   id = signal(0);
   product: ProductDetail | undefined = {} as ProductDetail;
   ServiceDetails = [
@@ -54,16 +55,19 @@ export class Product implements OnInit {
     private route: ActivatedRoute,
     public productService: ProductService,
     public timer: TimerService,
-    public sanitizer:DomSanitizer
+    public sanitizer: DomSanitizer
   ) {}
   ngOnInit() {
     this.route.params.subscribe((item) => {
-      this.id.set(item['id']);
+      const id = Number(item['id']);
+      this.id.set(id);
+      this.product = this.productService.Products.find(
+        (x) => x.Id == this.id()
+      );
+      console.log(this.product);
     });
-    this.product = this.productService.Products.find((x) => x.Id == this.id());
-    console.log(this.product);
   }
-  
+
   ClassDefine(id: number) {
     if (this.productService.AvailableInWishlist(id)) {
       return 'text-white bg-[#1c799b] ';

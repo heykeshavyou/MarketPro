@@ -122,11 +122,11 @@
     </p>
     <div class="my-4 flex gap-2.5 items-center">
       <p class="text-2xl text-gray-400 quicksand font-black line-through">
-        {{ product?.Price | currency }}
+        {{ product?.Price | currency : "INR" }}
       </p>
 
       <p class="text-3xl quicksand font-black">
-        {{ product?.OfferPrice | currency }}
+        {{ product?.OfferPrice | currency : "INR" }}
       </p>
       <a href="https://wa.me/9667167963" target="_blank">
         <button
@@ -352,19 +352,141 @@
   </div>
   <div class="my-5">
     @if(IsDes()){
-    <div class="p-5">
+    <div class="p-5" data-aos="zoom-in" data-aos-once="true">
       <p class="quicksand text-2xl font-black">Product Description</p>
       <p class="my-2">{{ product?.Descripation }}</p>
     </div>
     }@else {
-    <div class="p-5">
+    <div class="p-5" data-aos="zoom-in" data-aos-once="true">
       <div class="grid md:grid-cols-2 grid-cols-1">
-        <div><p class="quicksand text-2xl font-black">Reviews</p></div>
+        <div class="p-5">
+          <p class="quicksand text-2xl font-black">Reviews</p>
+          <div class="flex my-4 pb-6 gap-2.5">
+            <div class="mt-3">
+              <img
+                src="https://marketpro-angular.netlify.app/assets/images/thumbs/comment-img1.png"
+                width="40px"
+              />
+            </div>
+            <div class="w-[100%]">
+              <div class="flex justify-between items-center">
+                <p class="font-bold quicksand">Nicolas cage</p>
+                <p class="text-gray-500 text-[10px]">3 Days ago</p>
+              </div>
+              <div class="my-2">
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+              </div>
+              <p class="font-bold quicksand my-2">Great Product</p>
+              <p class="text-gray-500 text-[14px]">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour
+              </p>
+            </div>
+          </div>
+          <div class="flex my-4 pb-6 gap-2.5">
+            <div class="mt-3">
+              <img
+                src="https://marketpro-angular.netlify.app/assets/images/thumbs/comment-img1.png"
+                width="40px"
+              />
+            </div>
+            <div class="w-[100%]">
+              <div class="flex justify-between items-center">
+                <p class="font-bold quicksand">Nicolas cage</p>
+                <p class="text-gray-500 text-[10px]">3 Days ago</p>
+              </div>
+              <div class="my-2">
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+              </div>
+              <p class="font-bold quicksand my-2">Great Product</p>
+              <p class="text-gray-500 text-[14px]">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour
+              </p>
+            </div>
+          </div>
+          <p class="quicksand text-2xl font-black mb-4">Write a Reviews</p>
+          <div>
+            <p class="text-[14px] mb-3">What is it like to Product?</p>
+            <ng-container *ngTemplateOutlet="star"></ng-container>
+          </div>
+          <div class="my-5 flex flex-col">
+            <label class="mb-2 text-[14px]">Review Title</label>
+            <input
+              type="text"
+              placeholder="Best Product"
+              class="border mb-2 placeholder:text-gray-400 border-gray-300 rounded-[5px] p-2 focus-visible:outline-[#1c799b]"
+            />
+            <label class="mb-2 text-[14px]">Review Content</label>
+            <textarea
+              class="border mb-2 placeholder:text-gray-400 h-36 border-gray-300 rounded-[5px] p-2 focus-visible:outline-[#1c799b]"
+            >
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            </textarea>
+          </div>
+          <button
+            class="cursor-pointer px-3 py-2 bg-[#1c799b] text-white rounded-full text-[14px]"
+          >
+            Sumbit
+          </button>
+        </div>
         <div>
           <p class="quicksand text-2xl font-black">Ratings</p>
-          <div class="flex">
-            <div class="border border-gray-300">
-
+          <div class="grid md:grid-cols-3 grid-cols-1">
+            <div
+              class="border border-gray-300 my-2 md:w-52 p-8 flex justify-center items-center rounded-2xl col-span-1"
+            >
+              <div class="flex justify-center flex-col items-center gap-2.5">
+                <p class="text-5xl quicksand font-black text-[#1c799b]">
+                  {{ product?.Rating }}
+                </p>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p class="text-gray-400 text-[12px]">Average Product Rating</p>
+              </div>
+            </div>
+            <div class="border border-gray-300 my-2 rounded-2xl col-span-2 p-5">
+              <div class="p-3 flex justify-between items-center gap-2.5">
+                <p>5</p>
+                <div class="h-2 bg-gray-300 rounded-full w-1/2">
+                  <div class="bg-[#1c799b] h-[100%] rounded-full w-4/5"></div>
+                </div>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p>124</p>
+              </div>
+              <div class="p-3 flex justify-between items-center gap-2.5">
+                <p>4</p>
+                <div class="h-2 bg-gray-300 rounded-full w-1/2">
+                  <div class="bg-[#1c799b] h-[100%] rounded-full w-3/5"></div>
+                </div>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p>94</p>
+              </div>
+              <div class="p-3 flex justify-between items-center gap-2.5">
+                <p>3</p>
+                <div class="h-2 bg-gray-300 rounded-full w-1/2">
+                  <div class="bg-[#1c799b] h-[100%] rounded-full w-2/5"></div>
+                </div>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p>54</p>
+              </div>
+              <div class="p-3 flex justify-between items-center gap-2.5">
+                <p>2</p>
+                <div class="h-2 bg-gray-300 rounded-full w-1/2">
+                  <div class="bg-[#1c799b] h-[100%] rounded-full w-1/5"></div>
+                </div>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p>36</p>
+              </div>
+              <div class="p-3 flex justify-between items-center gap-2.5">
+                <p>1</p>
+                <div class="h-2 bg-gray-300 rounded-full w-1/2">
+                  <div class="bg-[#1c799b] h-[100%] rounded-full w-0"></div>
+                </div>
+                <ng-container *ngTemplateOutlet="star"></ng-container>
+                <p>0</p>
+              </div>
             </div>
           </div>
         </div>
@@ -375,3 +497,63 @@
 </div>
 <app-flash-sale> </app-flash-sale>
 <app-info></app-info>
+<app-news-letter></app-news-letter>
+<ng-template #star>
+  <span class="flex gap-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      fill="orange"
+      class="bi bi-star-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      fill="orange"
+      class="bi bi-star-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      fill="orange"
+      class="bi bi-star-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      fill="orange"
+      class="bi bi-star-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      fill="orange"
+      class="bi bi-star-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+      />
+    </svg>
+  </span>
+</ng-template>
