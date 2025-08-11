@@ -1,5 +1,7 @@
-<div class="p-3 grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 md:m-10 m-3 gap-5">
-  <div class="md:col-span-2 md:order-1">
+<div
+  class="p-3 grid lg:grid-cols-8 md:grid-cols-5 grid-cols-1 md:m-10 m-3 gap-5"
+>
+  <div class="md:col-span-3 md:order-1">
     <div>
       <div
         class="border-1 border-gray-300 p-10 rounded-[10px] flex items-center justify-center"
@@ -50,7 +52,7 @@
       </div>
     </div>
   </div>
-  <div class="md:col-span-2 md:order-3 lg:order-2">
+  <div class="md:col-span-3 md:order-3 lg:order-2">
     <h1 class="quicksand font-black text-3xl">{{ product?.Name }}</h1>
     <div class="my-3 text-[13px] flex gap-2.5 items-center font-medium">
       <span class="flex gap-2">
@@ -118,14 +120,21 @@
       Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada
       tincidunt. Class aptent taciti sociosqu ad litora torquent
     </p>
-    <div class="my-4 flex gap-2.5 items-baseline">
+    <div class="my-4 flex gap-2.5 items-center">
       <p class="text-2xl text-gray-400 quicksand font-black line-through">
-        {{ product?.Price | currency : "INR" }}
+        {{ product?.Price | currency }}
       </p>
 
       <p class="text-3xl quicksand font-black">
-        {{ product?.OfferPrice | currency : "INR" }}
+        {{ product?.OfferPrice | currency }}
       </p>
+      <a href="https://wa.me/9667167963" target="_blank">
+        <button
+          class="cursor-pointer px-3 py-2 bg-[#1c799b] text-white rounded-full text-[14px]"
+        >
+          Order on What'sApp
+        </button>
+      </a>
     </div>
     <hr class="my-5 text-gray-300" />
     <div class="bg-[#f3faf2] p-4 rounded-[10px] text-[14px]">
@@ -174,7 +183,7 @@
       ></div>
     </div>
     <p class="text-[14px] my-2">Available only: {{ product?.Quantity }}</p>
-    <div class="my-5 flex  justify-between items-center">
+    <div class="my-5 flex justify-between items-center">
       @if (productService.IFCart(product?.Id ?? 0)) {
       <button
         class="bg-[#e3f4fa] scale-110 flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
@@ -225,13 +234,9 @@
       </button>
       }
       <button
-        [ngClass]="{
-          'text-white bg-[#1c799b]': productService.AvailableInWishlist(
-            product?.Id ?? 0
-          )
-        }"
+        [ngClass]="ClassDefine(product?.Id ?? 0)"
         (click)="productService.AddToWishlist(product!)"
-        class="hover:bg-[#1c799b] bg-[#e3f4fA] cursor-pointer duration-300 p-3  text-[#1c799b]  rounded-full flex justify-center items-center hover:text-white"
+        class="active:scale-110 transit *:duration-200 cursor-pointer duration-300 p-3 rounded-full flex justify-center items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -246,8 +251,127 @@
         </svg>
       </button>
     </div>
-        <hr class="my-5 text-gray-300" />
-
+    <hr class="my-5 text-gray-300" />
+    <div
+      class="p-3 border border-dashed rounded-[5px] border-[#3f60b6] flex items-center gap-2.5 justify-between"
+    >
+      <div class="flex items-center gap-2.5">
+        <div class="p-1 border rounded-full hover:bg-gray-300 cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            fill="#000"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+            />
+          </svg>
+        </div>
+        <p class="text-[12px]">Mfr. coupon. $3.00 off 5</p>
+      </div>
+      <p
+        class="text-[12px] cursor-pointer underline text-[#3f60b6] hover:text-[#2f4a8d] font-bold"
+      >
+        View Details
+      </p>
+    </div>
+    <div class="p-3">
+      <ul class="my-2.5 text-[13px] list-disc">
+        <li>Buy 1, Get 1 FREE</li>
+        <li>Buy 1, Get 1 FREE</li>
+      </ul>
+    </div>
   </div>
-  <div class="md:col-span-1 md:order-2 lg:order-3"></div>
+  <div class="md:col-span-2 md:order-2 lg:order-3">
+    <div class="rounded-[10px] bg-white border-1 border-gray-300">
+      <div class="py-4 px-2">
+        <div
+          class="bg-[#1799b9] flex rounded-full p-2 justify-between items-center"
+        >
+          <div class="flex items-center gap-2">
+            <div class="bg-white p-2 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                fill="currentColor"
+                class="bi bi-shop"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z"
+                />
+              </svg>
+            </div>
+            <p class="text-[12px] text-white">By MarketPro</p>
+          </div>
+
+          <div class="bg-white p-2 text-[14px] rounded-full cursor-pointer">
+            <p>View Store</p>
+          </div>
+        </div>
+      </div>
+      @for (item of ServiceDetails; track $index) {
+      <div class="py-4 px-3 bg-[#f3faf2]">
+        <div class="flex items-center">
+          <div
+            class="p-2 bg-white rounded-full"
+            [innerHTML]="sanitizer.bypassSecurityTrustHtml(item.icon)"
+          ></div>
+          <div class="px-3 gap-1.5">
+            <p class="quicksand text-[12px] font-bold">
+              {{ item.name }}
+            </p>
+            <p class="text-[14px]">
+              {{ item.msg }}
+            </p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
 </div>
+<div class="border-1 border-gray-300 m-4 rounded-2xl">
+  <div class="p-4 border-b-1 border-b-gray-300">
+    <button
+      class="cursor-pointer rounded-full px-3 py-2"
+      (click)="IsDes.set(true)"
+      [ngClass]="IsDes() ? 'bg-[#1c799b] text-white' : 'text-black'"
+    >
+      Description
+    </button>
+    <button
+      class="cursor-pointer rounded-full px-3 py-2"
+      (click)="IsDes.set(false)"
+      [ngClass]="!IsDes() ? 'bg-[#1c799b] text-white' : 'text-black'"
+    >
+      Reviews
+    </button>
+  </div>
+  <div class="my-5">
+    @if(IsDes()){
+    <div class="p-5">
+      <p class="quicksand text-2xl font-black">Product Description</p>
+      <p class="my-2">{{ product?.Descripation }}</p>
+    </div>
+    }@else {
+    <div class="p-5">
+      <div class="grid md:grid-cols-2 grid-cols-1">
+        <div><p class="quicksand text-2xl font-black">Reviews</p></div>
+        <div>
+          <p class="quicksand text-2xl font-black">Ratings</p>
+          <div class="flex">
+            <div class="border border-gray-300">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+<app-flash-sale> </app-flash-sale>
+<app-info></app-info>

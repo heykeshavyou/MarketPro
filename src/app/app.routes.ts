@@ -5,8 +5,8 @@ import { Wishlist } from './wishlist/wishlist';
 import { Product } from './product/product';
 
 export const routes: Routes = [
-    {path:"",component:Home,title:"Home"},
-    {path:"cart",component:Cart,title:"Cart"},
-    {path:"wishlist",component:Wishlist,title:"Wishlist"},
-    {path:"product/:id",component:Product,title:"Product"}
+  { path: '', component: Home, title: 'Home' },
+  { path: 'cart', component: Cart, title: 'Cart' },
+  { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
+  { path: 'product/:id', component: Product, title: 'Product'},
 ];
