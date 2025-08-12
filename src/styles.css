@@ -84,3 +84,9 @@ body {
 .product :hover img{
   @apply scale-115;
 }
+.btn{
+  @apply bg-[#1c799b] text-white px-5 py-1.5 rounded-[5px]
+}
+.product:hover .status{
+  @apply visible;
+}

@@ -107,7 +107,7 @@ export class ProductService {
       OfferPrice: 1000,
       Rating: 3.9,
       RatingCount: 75,
-      CategoryId: 2,
+      CategoryId: 3,
       Descripation:
         'Nilkamal Quality Assurance: Backed by a 3-year warranty, ensuring a long-lasting, high-quality product from the trusted Nilkamal brand. Multifunctional Design: It serves as a desk for homework, reading, eating, and other activities. It is perfect for kids aged 3 to 5 years.',
       Img: '/product3.jpg',

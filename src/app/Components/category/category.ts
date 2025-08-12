@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../Services/product-service';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category',
-  imports: [SlickCarouselModule, CommonModule],
+  imports: [SlickCarouselModule, CommonModule,RouterLink],
   templateUrl: './category.html',
   styleUrl: './category.css',
 })
