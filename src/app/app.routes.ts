@@ -10,5 +10,6 @@ export const routes: Routes = [
   { path: 'cart', component: Cart, title: 'Cart' },
   { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
   { path: 'product/:id', component: Product, title: 'Product'},
-  {path : 'shop',component:Shop,title:'Shop'}
+  {path : 'shop',component:Shop,title:'Shop'},
+  {path:"contact",loadComponent:()=>import('./contact/contact').then(m=>m.Contact),title:'Contact Us'}
 ];

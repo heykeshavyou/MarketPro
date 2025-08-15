@@ -85,8 +85,14 @@ body {
   @apply scale-115;
 }
 .btn{
-  @apply bg-[#1c799b] text-white px-5 py-1.5 rounded-[5px]
+  @apply bg-[#1c799b] text-white px-5 py-1.5 rounded-[5px] cursor-pointer active:scale-90 
 }
 .product:hover .status{
   @apply visible;
+}
+.contact-btn{
+  @apply bg-[#121535] text-white px-3 py-2 rounded-[5px] flex items-center justify-between hover:bg-[#1c779b] transition-all duration-150 
+}
+.contact-input{
+  @apply focus-visible:outline-[#1c799b] w-[100%] block border border-gray-300 px-3 py-2 rounded-[5px] my-2 placeholder:text-gray-400
 }
