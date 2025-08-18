@@ -249,15 +249,16 @@
             class="bg-white shadow-2xl min-w-43 p-2 rounded-[5px] absolute z-2 link-menu duration-300 transition-all invisible opacity-0 translate-y-10"
           >
             @for(link of item.links;track $index){
-            <li
-              class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
-            >
-              <a [routerLink]="link.route" class="w-[100%]">
+            <a [routerLink]="link.route">
+              <li
+                class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
+              >
                 <div>
                   {{ link.text }}
                 </div>
-              </a>
-            </li>
+              </li>
+            </a>
+
             }
           </ul>
         </div>

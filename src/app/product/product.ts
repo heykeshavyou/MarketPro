@@ -8,10 +8,11 @@ import { Info } from '../Components/info/info';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FlashSale } from '../Components/flash-sale/flash-sale';
 import { NewsLetter } from "../Components/news-letter/news-letter";
+import { BreadCrumb } from "../Components/bread-crumb/bread-crumb";
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule, Info, FlashSale, NewsLetter],
+  imports: [CommonModule, Info, FlashSale, NewsLetter, BreadCrumb],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })

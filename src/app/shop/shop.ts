@@ -3,10 +3,11 @@ import { ProductService } from '../Services/product-service';
 import Product from '../Models/Product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BreadCrumb } from "../Components/bread-crumb/bread-crumb";
 
 @Component({
   selector: 'app-shop',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, BreadCrumb],
   templateUrl: './shop.html',
   styleUrl: './shop.css',
 })

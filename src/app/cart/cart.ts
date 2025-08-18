@@ -4,10 +4,11 @@ import Product from '../Models/Product';
 import { CommonModule } from '@angular/common';
 import { Info } from "../Components/info/info";
 import { RouterLink } from '@angular/router';
+import { BreadCrumb } from "../Components/bread-crumb/bread-crumb";
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, Info,RouterLink],
+  imports: [CommonModule, Info, RouterLink, BreadCrumb],
   templateUrl: './cart.html',
   styleUrl: './cart.css'
 })

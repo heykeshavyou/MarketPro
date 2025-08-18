@@ -1,7 +1,44 @@
+<app-bread-crumb title="Blog"></app-bread-crumb>
 <div>
-    <div class="grid lg:grid-cols-2  grid-cols-1">
-        <div>
-            
-        </div>
+  <div class="grid lg:grid-cols-3 grid-cols-1 p-5 gap-5">
+    <div class="col-span-2">
+      <img src="blog-img1.png" />
     </div>
+    <div class="col-span-1">
+      <div class="border-gray-300 border mx-5 p-5 rounded-[10px] mb-3">
+        <div class="border-b-gray-300 border-b pb-6">
+          <h1 class="quicksand font-black">Search Here</h1>
+        </div>
+        <div class="my-4 flex">
+          <input class="bg-[#f1f1f1] w-[100%] p-3 rounded-l-[5px] focus-visible:outline-[#1c799b] placeholder-gray-400" placeholder="Search...." />
+          <button class="bg-[#1c799b] p-3 flex justify-center items-center rounded-r-[5px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              fill="white"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="border-gray-300 border mx-5 p-5 rounded-[10px] mb-3">
+                <div class="border-b-gray-300 border-b pb-6">
+          <h1 class="quicksand font-black">Recents Posts</h1>
+        </div>
+        @for (item of Posts; track $index) {
+            <div class="my-3 flex items-center gap-2.5 ">
+                <img [src]="item.img" class="rounded-[10px]"  width="100px">
+                <div>
+                    <p class="quicksand font-bold text-hover">{{item.title}}</p>
+                </div>
+            </div>
+        }
+      </div>
+    </div>
+  </div>
 </div>
