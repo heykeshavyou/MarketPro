@@ -239,11 +239,11 @@
     </h1>
     <div>
       <a [routerLink]="['/shop']">
-        <p class="my-4 text-hover">All Categories</p>
+        <p class="my-4 text-hover quicksand font-black">All Categories</p>
       </a>
       @for (item of productService.Categories; track $index) {
       <a [routerLink]="['/shop', { id: item.Id }]">
-        <p class="my-4 text-hover">{{ item.Name }}</p>
+        <p class="my-4 text-hover quicksand font-extrabold">{{ item.Name }}</p>
       </a>
       }
     </div>
