@@ -1,8 +1,283 @@
 <app-bread-crumb title="Blog"></app-bread-crumb>
-<div>
+<div class="mb-10">
   <div class="grid lg:grid-cols-3 grid-cols-1 p-5 gap-5">
     <div class="col-span-2">
       <img src="blog-img1.png" />
+      <div>
+        <button
+          class="quicksand p-2 text-[#1c799b] font-black my-3 rounded-[5px] bg-[#e3f4fa] text-[14px]"
+        >
+          <a [routerLink]="['/shop', { id: 6 }]"> Phones & Gadgets </a>
+        </button>
+      </div>
+      <div>
+        <p class="text-3xl quicksand font-black cursor-pointer text-hover">
+          Nice decoration make be distilled to a single house
+        </p>
+        <p class="my-3 text-gray-700">
+          A great commerce experience cannot be distilled to a single number.
+          It's not a Lighthouse score, or a set of Core Web Vitals figures,
+          although both are important inputs. A great commerce experience is a
+          trilemma that carefully balances competing needs of delivering great
+          customer experience, dynamic storefront capabilities, and long-term
+          business — conversion, retention, re-engagement — objectives. As
+          developers, we rightfully obsess about the customer experience,
+          relentlessly working to squeeze every millisecond out of the critical
+          rendering path, optimize input latency, and eliminate jank. At the
+          limit, statically generated, edge delivered, and HTML-first pages look
+          like the optimal strategy. That is until you are confronted with the
+          realization that the next step function in improving conversion rates
+          and business.
+          <br />
+          <br />
+          Re-engagement — objectives. As developers, we rightfully obsess about
+          the customer experience, relentlessly working to squeeze every
+          millisecond out of the critical rendering path, optimize input
+          latency, and eliminate...
+        </p>
+        <hr class="mt-6 text-gray-300" />
+        <div class="flex gap-2.5 mt-2.5">
+          <div class="my-2 flex gap-1.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              fill="#1c799b"
+              class="bi bi-calendar-event"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
+              />
+              <path
+                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+              />
+            </svg>
+            <p class="text-hover text-[12px] text-gray-400 tracking-wider">
+              March 21, 2025
+            </p>
+          </div>
+          <div class="my-2 flex gap-1.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              fill="#1c799b"
+              class="bi bi-chat"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105"
+              />
+            </svg>
+            <p class="text-hover text-[12px] text-gray-400 tracking-wider">
+              0 Comments
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-5 my-10">
+          <img src="/blog-details-img1.png" />
+          <img src="/blog-details-img2.png" />
+        </div>
+        <p class="text-gray-700">
+          A great commerce experience cannot be distilled to a single number.
+          It’s not a Lighthouse score, or a set of Core Web Vitals figures,
+          although both are important inputs. A great commerce experience is a
+          trilemma that carefully balances competing needs of delivering great
+          customer experience, dynamic storefront capabilities, and long-term
+          business.
+        </p>
+        <h1 class="text-2xl quicksand my-5 font-black">
+          The following are the four main market segments in which e-commerce is
+          present. These are the following:
+        </h1>
+        <ul class="grid lg:grid-cols-2 grid-cols-1 list-['✓'] mx-4">
+          @for (item of iteration; track $index) {
+          <li class="my-3 text-gray-700 text-[16px]">
+            A great commerce experience cannot be distilled to a single number
+          </li>
+          }
+        </ul>
+        <div class="bg-[#e3fafa] p-4 rounded-[10px] my-10">
+          <div class="flex justify-start items-center">
+            <div
+              class="bg-[#1c799b] p-3 rounded-full flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                fill="white"
+                class="bi bi-blockquote-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1zm5 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1zm.79-5.373q.168-.117.444-.275L3.524 6q-.183.111-.452.287-.27.176-.51.428a2.4 2.4 0 0 0-.398.562Q2 7.587 2 7.969q0 .54.217.873.217.328.72.328.322 0 .504-.211a.7.7 0 0 0 .188-.463q0-.345-.211-.521-.205-.182-.568-.182h-.282q.036-.305.123-.498a1.4 1.4 0 0 1 .252-.37 2 2 0 0 1 .346-.298zm2.167 0q.17-.117.445-.275L5.692 6q-.183.111-.452.287-.27.176-.51.428a2.4 2.4 0 0 0-.398.562q-.165.31-.164.692 0 .54.217.873.217.328.72.328.322 0 .504-.211a.7.7 0 0 0 .188-.463q0-.345-.211-.521-.205-.182-.568-.182h-.282a1.8 1.8 0 0 1 .118-.492q.087-.194.257-.375a2 2 0 0 1 .346-.3z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="text-gray-600 my-5 text-[14px]">
+            A great commerce experience cannot be distilled to a single number.
+            It’s not a Lighthouse score, or a set of Core Web Vitals figures,
+            although both are important inputs. A great commerce experience is a
+            trilemma that carefully balances competing needs of delivering great
+            customer experience, dynamic storefront capabilities, and long-term
+            business.
+          </div>
+          <div class="flex gap-2.5 text-gray-800">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="flex gap-2.5">
+          <h1 class="quicksand font-bold text-2xl">Tag:</h1>
+          <div
+            class="border border-gray-300 p-2 hover:bg-gray-300 transition-all duration-300 rounded-[5px] text-[14px]"
+          >
+            <a [routerLink]="['/shop', { id: 5 }]"> Electronics </a>
+          </div>
+        </div>
+        <hr class="mt-6 text-gray-300" />
+        <div class="grid grid-cols-1 lg:grid-cols-2 my-6">
+          <div>
+            <div>
+              <p class="text-gray-500 text-hover">Previous Post</p>
+            </div>
+            <div>
+              <p class="text-hover quicksand font-black my-2">
+                A great commerce experience cannot be distilled to a single
+                number.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="">
+              <p class="text-gray-500 text-hover text-end">Next Post</p>
+            </div>
+            <div>
+              <p class="text-hover quicksand font-black my-2 text-end">
+                A great commerce experience cannot be distilled to a single
+                number.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-6 text-gray-300" />
+        <div class="pt-5">
+          <h1 class="quicksand text-2xl font-black">Leave a Comment</h1>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 quicksand py-4 gap-2.5 text-[14px]"
+          >
+            <div>
+              <label for="name" class="font-bold text-[14px] w-[100%]"> Full Name </label>
+              <br />
+              <input
+              id="name"
+                placeholder="Full Name"
+                class="my-2 focus-visible:outline-[#1c799b] w-[100%] placeholder-gray-400 p-2 outline-gray-300 border border-gray-300 rounded-[5px]"
+              />
+            </div>
+            <div>
+              <label for="email" class="font-bold w-[100%]">Email Address </label>
+              <br />
+              <input id="email"
+                placeholder="Email Address"
+                class="my-2 placeholder-gray-400 focus-visible:outline-[#1c799b] w-[100%] p-2 outline-gray-300 border border-gray-300 rounded-[5px]"
+              />
+            </div>
+          </div>
+          <div class="quicksand text-[14px]">
+            <label for="msg" class="font-bold w-[100%]">Message </label>
+            <br />
+            <textarea id="msg"
+              placeholder="Write Your toughts"
+              class="my-2 h-25 placeholder-gray-400 focus-visible:outline-[#1c799b] w-[100%] p-2 outline-gray-300 border border-gray-300 rounded-[5px]"
+            ></textarea>
+          </div>
+          <div>
+            <button class="btn">Post Comment</button>
+          </div>
+        </div>
+        <hr class="mt-6 text-gray-300" />
+        <div>
+          <h1 class="font-bold quicksand my-5 text-[20px]">Comments</h1>
+          @for (item of Comments; track $index) {
+          <div class="my-5">
+            <div class="flex gap-2.5 items-center">
+              <img [src]="item.img" width="40px" />
+              <p class="quicksand font-bold">
+                {{ item.name }}
+              </p>
+            </div>
+            <p class="text-gray-600 text-[14px] my-3">
+              {{ item.msg }}
+            </p>
+            <hr class="mt-6 text-gray-300" />
+          </div>
+          }
+        </div>
+        <div>
+          <button class="btn">
+            Load More
+          </button>
+        </div>
+      </div>
     </div>
     <div class="col-span-1">
       <div class="border-gray-300 border mx-5 p-5 rounded-[10px] mb-3">
@@ -36,7 +311,7 @@
           <h1 class="quicksand font-black">Recents Posts</h1>
         </div>
         @for (item of Posts; track $index) {
-        <div class="my-3 flex items-center gap-2.5">
+        <div class="my-3 flex items-center gap-2.5 cursor-pointer">
           <img [src]="item.img" class="rounded-[10px]" width="100px" />
           <div>
             <p class="quicksand font-bold text-hover">{{ item.title }}</p>
@@ -44,7 +319,6 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
-                height="16"
                 fill="#1c799b"
                 class="bi bi-calendar-event"
                 viewBox="0 0 16 16"
@@ -74,7 +348,7 @@
             class="border border-gray-300 p-1 cursor-pointer items-center rounded-[5px] my-3 text-[14px] hover:border-[#1c799b] transition-all duration-200 hover:text-[#1c799b] flex justify-between"
           >
             <p class="quicksand ms-2 font-extrabold">{{ item.Name }}</p>
-            <button class="bg-[#e3f4fa] p-3 rounded-[5px]">
+            <button class="bg-[#e3f4fa] p-3 rounded-[5px]" (click)="router.navigate(['/shop',{id: item.Id}])">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

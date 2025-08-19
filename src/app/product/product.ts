@@ -5,7 +5,7 @@ import { ProductService } from '../Services/product-service';
 import { CommonModule } from '@angular/common';
 import { TimerService } from '../Services/timer-service';
 import { Info } from '../Components/info/info';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { FlashSale } from '../Components/flash-sale/flash-sale';
 import { NewsLetter } from "../Components/news-letter/news-letter";
 import { BreadCrumb } from "../Components/bread-crumb/bread-crumb";
@@ -56,7 +56,8 @@ export class Product implements OnInit {
     private route: ActivatedRoute,
     public productService: ProductService,
     public timer: TimerService,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    private _titleService:Title
   ) {}
   ngOnInit() {
     this.route.params.subscribe((item) => {
@@ -65,7 +66,7 @@ export class Product implements OnInit {
       this.product = this.productService.Products.find(
         (x) => x.Id == this.id()
       );
-      console.log(this.product);
+      this._titleService.setTitle(this.product?.Name??"");
     });
   }
 

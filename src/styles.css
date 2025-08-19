@@ -30,7 +30,7 @@ body {
   @apply grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-x-2 mb-20;
 }
 .text-hover {
-  @apply hover:text-[#1c799b] transition-colors duration-200;
+  @apply hover:text-[#1c799b] transition-colors duration-200 cursor-pointer;
 }
 .btn-shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

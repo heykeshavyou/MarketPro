@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: '', component: Home, title: 'Home' },
   { path: 'cart', component: Cart, title: 'Cart' },
   { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
-  { path: 'product/:id', component: Product, title: 'Product'},
+  { path: 'product/:id', component: Product},
   {path : 'shop',component:Shop,title:'Shop'},
   {path:'blog',component:Blog,title:'Blog'},
   {path:"contact",loadComponent:()=>import('./contact/contact').then(m=>m.Contact),title:'Contact Us'}
