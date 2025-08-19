@@ -37,10 +37,10 @@ export class Footer {
       sublinks: [
         { name: 'My Account', route: 'My Account' },
         { name: 'Order History', route: 'Order History' },
-        { name: 'Shopping Cart', route: 'Shopping Cart' },
+        { name: 'Shopping Cart', route: 'cart' },
         { name: 'Compare', route: 'Compare' },
         { name: 'Help Ticket', route: 'Help Ticket' },
-        { name: 'Wishlist', route: 'Wishlist' },
+        { name: 'Wishlist', route: 'wishlist' },
       ],
     },
     {

@@ -7,7 +7,7 @@ import { Shop } from './shop/shop';
 import { Blog } from './blog/blog';
 
 export const routes: Routes = [
-  { path: '', component: Home, title: 'Home' },
+  { path: '', component: Home, title: 'Home',pathMatch:'full' },
   { path: 'cart', component: Cart, title: 'Cart' },
   { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
   { path: 'product/:id', component: Product},

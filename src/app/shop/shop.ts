@@ -73,4 +73,6 @@ export class Shop implements OnInit {
       : 'invisible opacity-0 translate-y-10';
     this.Filter.set(!this.Filter());
   }
+  Count=signal(1);
+  arraynumber=Array.from({ length: 5 }, (_, i) => i + 1);
 }

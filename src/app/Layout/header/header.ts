@@ -4,12 +4,12 @@ import { interval, Subscription } from 'rxjs';
 import { Select2, Select2Data } from 'ng-select2-component';
 import { CommonModule } from '@angular/common';
 import { HomeDesignService } from '../../Services/home-design-service';
-import {  RouterLink } from '@angular/router';
+import {  RouterLink, RouterLinkActive } from '@angular/router';
 import { ProductService } from '../../Services/product-service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, Select2, RouterLink],
+  imports: [CommonModule, Select2, RouterLink,RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

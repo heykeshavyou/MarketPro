@@ -96,3 +96,12 @@ body {
 .contact-input{
   @apply focus-visible:outline-[#1c799b] w-[100%] block border border-gray-300 px-3 py-2 rounded-[5px] my-2 placeholder:text-gray-400
 }
+.text-primary{
+  @apply text-[#1c799b];
+}
+.btn-hover:hover{
+  @apply text-[#1c799b] bg-[#e3f4fa] border border-[#1c799b]; 
+}
+.btn-hover{
+  @apply transition-all duration-300 cursor-pointer;
+}
