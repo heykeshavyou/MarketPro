@@ -15,6 +15,7 @@ import { ProductService } from '../../Services/product-service';
 })
 export class Header implements OnInit {
   private intervalSubscription: Subscription | undefined;
+  data:Select2Data=[];
   RouteName: string = '';
   constructor(
     public timer: TimerService,
@@ -29,6 +30,7 @@ export class Header implements OnInit {
     this.intervalSubscription = interval(1000).subscribe(() => {
       this.timer.Timer();
     });
+
   }
   Search = false;
   searchClass = 'invisible opacity-0 translate-y-10';

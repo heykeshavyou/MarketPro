@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, signal } from '@angular/core';
 import { ProductService } from '../../Services/product-service';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CommonModule } from '@angular/common';
@@ -11,12 +11,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './flash-sale.css'
 })
 export class FlashSale implements OnInit{
+  @Input() TitleHead="";
+  @Input() ProductId=0;
   Product:Product[]=[];
   constructor(public ProductService:ProductService){
 
   }
   ngOnInit() {
-    this.Product=this.ProductService.Products.filter(x=>x.OfferPrice<1000);
+    this.Product=this.ProductService.Products.filter(x=>x.OfferPrice<1000&&x.Id!=this.ProductId);
   }
     slideConfig = {
     slidesToShow: 1,
@@ -29,7 +31,7 @@ export class FlashSale implements OnInit{
     centerMode: false,
     variableWidth: true,
     speed: 300,
-    pauseOnHover: true ,
+    pauseOnHover: true,
     autoplaySpeed: 3000,
   };
 

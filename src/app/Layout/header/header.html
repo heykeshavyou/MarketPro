@@ -105,20 +105,24 @@
             />
           </svg>
         </li>
-        <li class="flex justify-center items-center gap-x-2 text-hover">
-          <svg
-            class="text-gray-700"
-            xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            fill="currentColor"
-            class="bi bi-person"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
-            />
-          </svg>
-          <p class="hidden sm:block">Profile</p>
+        <li>
+          <a routerLink="profile" routerLinkActive="text-primary">
+            <div class="flex justify-center items-center gap-x-2 text-hover">
+              <svg
+                class="text-gray-700"
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                fill="currentColor"
+                class="bi bi-person"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+                />
+              </svg>
+              <p class="hidden sm:block">Profile</p>
+            </div>
+          </a>
         </li>
         <li>
           <a routerLink="wishlist">
@@ -208,13 +212,21 @@
           <div
             class="invisible border-1 border-[#BBF7D0] opacity-0 translate-y-10 grid grid-cols-3 p-2 broswer-drop-menu bg-white shadow-2xl duration-300 transition-all absolute z-1 rounded-[10px] text-[12px] font-medium"
           >
-            @for (item of Category; track $index) {
-            <div
-              class="p-5 sizes-[340px] rounded-[10px] justify-center items-center flex flex-col hover:bg-[#E4F1FF]"
-            >
-              <img [src]="item.img" width="50" />
-              <p>{{ item.name }}</p>
-            </div>
+            @for (item of ProductService.Categories; track $index) {
+            <a [routerLink]="['shop', { id: item.Id }]">
+              <div
+                class="p-5 size-[126px] rounded-[10px] justify-center items-center flex flex-col hover:bg-[#e3f4fa] hover:border hover:border-[#1c799b]"
+              >
+                <img
+                  [src]="item.Img"
+                  width="50"
+                  height="50"
+                  class="aspect-square object-contain"
+                />
+                <p class="truncate mx-2">{{ item.Name }}</p>
+              </div>
+            </a>
+
             }
           </div>
         </div>
@@ -223,7 +235,7 @@
         @for (item of HomeDesign.NavigationLinks; track $index) {
         <div class="mx-3 link-drop relative">
           <div class="link-text flex items-center gap-x-2 cursor-pointer">
-            <p class="" >{{ item.name }}</p>
+            <p class="">{{ item.name }}</p>
             @if (item.new) {
             <div
               class="tooltip left-4 bg-amber-300 p-1 rounded-[5px] animate-bounce absolute bottom-5"
@@ -263,7 +275,14 @@
           </ul>
         </div>
         }
-        <p><a routerLink="contact" class="text-hover">Contact us</a></p>
+        <p>
+          <a
+            routerLink="contact"
+            routerLinkActive="text-primary"
+            class="text-hover"
+            >Contact us</a
+          >
+        </p>
       </div>
     </div>
     <div class="lg:flex hidden gap-3 font-medium">

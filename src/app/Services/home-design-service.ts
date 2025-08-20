@@ -111,7 +111,7 @@ export class HomeDesignService {
         },
         {
           text: 'Account',
-          route: '/acoount',
+          route: '/profile',
         },
       ],
       new: true,

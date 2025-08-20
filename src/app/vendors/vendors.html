@@ -1,0 +1,138 @@
+<app-bread-crumb title="Vendors"></app-bread-crumb>
+<div class="my-5">
+  <div class="m-4 flex justify-between">
+    <p class="border border-gray-300 px-4 py-2 rounded-full flex items-center">
+      Showing 1-20 of 85 results
+    </p>
+    <div class="w-1/2 flex">
+      <div class="border border-gray-300 rounded-full p-2 w-[100%] flex">
+        <input
+          placeholder="Search Vendors by name or Id"
+          class="placeholder-gray-400 mx-3 focus-visible:outline-0 w-[100%] text-[14px]"
+        />
+        <button class="bg-[#1c799b] p-2 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="white"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="flex w-[30%] gap-2.5 items-center mx-4">
+        <label for="sort">Sort by:</label>
+        <select id="sort " class="border border-gray-300 rounded-full p-1">
+          <option>Latest</option>
+          <option>Popular</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1  p-2   gap-2.5  "
+  >
+    @for (item of Vendors; track $index) {
+    <div
+    data-aos="zoom-in" data-aos-delay="200" data-aos-once="true"
+      class="mask-[url('/box-shape2.png')] mask-no-repeat px-3 pb-6 my-2 "
+      style="mask-size: 100% 100%"
+      [ngClass]="item.color"
+    >
+      <div class="flex justify-center">
+        <img [src]="item.img" class="m-3" width="66px" height="64px" />
+      </div>
+      <h1
+        class="mt-8 mb-4 text-[18px] text-center text-hover quicksand font-black"
+      >
+        {{ item.name }}
+      </h1>
+      <p class="text-[14px] text-center">Delivery by 6:15am</p>
+      <div class="justify-center items-center flex ">
+        <p class="text-[12px] mt-2 py-1.5 px-4 bg-white rounded-full hover:text-white hover:bg-[#1c799b] transition-all duration-300 cursor-pointer">₹5 off Snack & Candy</p>
+      </div>
+      <div class="mt-5.5 flex  gap-1.5 flex-wrap justify-center">
+        <div class="bg-white size-16 flex justify-center items-center rounded-full">
+            <img src="/vendor-img1.png" width="27px">
+        </div>
+        <div class="bg-white size-16 flex justify-center items-center rounded-full">
+            <img src="/vendor-img2.png" width="33px">
+        </div>
+        <div class="bg-white size-16 flex justify-center items-center rounded-full">
+            <img src="/vendor-img3.png" width="43px">
+        </div>
+        <div class="bg-white size-16 flex justify-center items-center rounded-full">
+            <img src="/vendor-img4.png" width="44px">
+        </div>
+        <div class="bg-white size-16 flex justify-center items-center rounded-full">
+            <img src="/vendor-img5.png" width="43px">
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="mx-4 my-7 flex justify-center items-center">
+  <div class="flex gap-2.5 mx-4">
+    <button
+      class="md:p-4 p-3 rounded-full btn-hover border border-gray-300"
+      [ngClass]="Count() == 1 ? 'bg-gray-300' : ''"
+      (click)="Count.set(Count() > 1 ? Count() - 1 : Count())"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        fill="currentColor"
+        class="bi bi-arrow-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+        />
+      </svg>
+    </button>
+    <div class="flex gap-2.5">
+      @for (item of arraynumber; track $index) {
+      <button
+        class="text-[20px] size-[45.6px] md:size-[53.6px] flex justify-center items-center p-4 rounded-full border border-gray-300"
+        [ngClass]="Count() == item ? 'bg-[#1c799b] text-white' : 'btn-hover'"
+        (click)="Count.set(item)"
+      >
+        {{ item }}
+      </button>
+
+      }
+    </div>
+    <button
+      class="md:p-4 p-3 rounded-full btn-hover border border-gray-300"
+      [ngClass]="Count() == 5 ? 'bg-gray-300' : ''"
+      (click)="
+        Count.set(
+          Count() < arraynumber[arraynumber.length - 1] ? Count() + 1 : Count()
+        )
+      "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        fill="currentColor"
+        class="bi bi-arrow-left rotate-180"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+<app-info></app-info>
+<app-news-letter></app-news-letter>

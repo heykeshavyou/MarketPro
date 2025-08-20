@@ -25,7 +25,7 @@ export class Footer {
       title: 'Customer Support',
       sublinks: [
         { name: 'Help Center', route: 'Help Center' },
-        { name: 'Contact Us', route: 'Contact Us' },
+        { name: 'Contact Us', route: 'contact' },
         { name: 'Report Abuse', route: 'Report Abuse' },
         { name: 'Submit and Dispute', route: 'Submit and Dispute' },
         { name: 'Policies & Rules', route: 'Policies & Rules' },

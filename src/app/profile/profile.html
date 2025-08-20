@@ -1,0 +1,133 @@
+<app-bread-crumb title="Profile"></app-bread-crumb>
+<div class="my-5 grid lg:grid-cols-4 grid-cols-1 p-5 gap-5">
+  <div class="bg-gray-100 rounded-2xl p-3 h-min">
+    @for (item of NavLinks; track $index) {
+    <p class="text-hover my-3 quicksand font-bold mx-3">{{ item }}</p>
+    }
+    <hr class="text-gray-300 mx-2" />
+    <div>
+      <div
+        class="text-red-500 hover:text-red-600 transition-all duration-300 cursor-pointer p-3 flex gap-2.5 justify-start items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-box-arrow-in-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
+          />
+        </svg>
+        <p>Logout</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-3">
+    <p class="quicksand text-3xl font-bold">User Profile</p>
+    <p class="text-[14px] text-gray-500 my-2">Manage Your Profile</p>
+    <div class="grid lg:grid-cols-3 grid-cols-1 gap-2.5">
+      <div
+        class="col-span-1 border border-gray-300 p-5 rounded-[5px] flex justify-center items-center gap-2.5"
+      >
+        <div class="flex items-center flex-col">
+          <img
+            src="/profile.png"
+            width="100px"
+            class="rounded-full border my-3 border-gray-300"
+          />
+          <p class="quicksand my-3">Keshav Singh</p>
+          <div class="flex items-center gap-2.5">
+            <p class="quicksand">+91 943238427</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-patch-check-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-2 border border-gray-300 p-5 rounded-[5px]">
+        <p class="text-2xl quicksand font-bold">General Information</p>
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-2.5">
+          <div class="border border-gray-300 my-2 rounded-[5px] p-2">
+            <label class="text-[14px] text-gray-800" for="first">
+              First Name
+            </label>
+            <br />
+            <input
+              disabled
+              id="first"
+              type="text"
+              class="focus-visible:outline-0"
+              value="Keshav"
+            />
+          </div>
+          <div class="border border-gray-300 my-2 rounded-[5px] p-2">
+            <label class="text-[14px] text-gray-800" for="last">
+              Last Name
+            </label>
+            <br />
+            <input
+              disabled
+              id="last"
+              type="text"
+              class="focus-visible:outline-0"
+              value="Singh"
+            />
+          </div>
+          <div>
+            <button class="btn w-1/2">Update</button>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3 border border-gray-300 p-5 rounded-[5px]">
+        <p class="text-2xl quicksand font-bold">Security</p>
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-2.5">
+          <div class="border border-gray-300 my-2 rounded-[5px] p-2">
+            <label class="text-[14px] text-gray-800" for="first"> Email </label>
+            <br />
+            <input
+              id="first"
+              type="text"
+              disabled
+              class="focus-visible:outline-0"
+              value="Keshav210305@gmail.com"
+            />
+          </div>
+          <div class="border border-gray-300 my-2 rounded-[5px] p-2">
+            <label class="text-[14px] text-gray-800" for="last">
+              Phone Number
+            </label>
+            <br />
+            <input
+              id="last"
+              type="text"
+              disabled
+              class="focus-visible:outline-0"
+              value="+91  943238427"
+            />
+          </div>
+          <div class="flex gap-2.5">
+            <button class="btn">Change Password</button>
+            <button class="btn">Update Email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
