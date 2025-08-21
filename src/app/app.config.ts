@@ -7,6 +7,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes,withInMemoryScrolling({scrollPositionRestoration:"top"}),withComponentInputBinding())
+    provideRouter(routes,withInMemoryScrolling({scrollPositionRestoration:"enabled"}),withComponentInputBinding())
   ]
 };

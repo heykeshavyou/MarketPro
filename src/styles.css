@@ -75,33 +75,39 @@ body {
 .link-drop:hover .link-drop-btn {
   @apply rotate-180;
 }
-.link-drop:hover .link-text{
+.link-drop:hover .link-text {
   @apply text-[#1c799b];
 }
 .link-drop:hover .link-menu {
   @apply opacity-100 translate-y-0 visible;
 }
-.product :hover img{
+.product :hover img {
   @apply scale-115;
 }
-.btn{
-  @apply bg-[#1c799b] text-white px-5 py-1.5 rounded-[5px] cursor-pointer active:scale-90 
+.btn {
+  @apply bg-[#1c799b] text-white px-5 py-1.5 rounded-[5px] cursor-pointer active:scale-90;
 }
-.product:hover .status{
+.product:hover .status {
   @apply visible;
 }
-.contact-btn{
-  @apply bg-[#121535] text-white px-3 py-2 rounded-[5px] flex items-center justify-between hover:bg-[#1c779b] transition-all duration-150 
+.contact-btn {
+  @apply bg-[#121535] text-white px-3 py-2 rounded-[5px] flex items-center justify-between hover:bg-[#1c779b] transition-all duration-150;
 }
-.contact-input{
-  @apply focus-visible:outline-[#1c799b] w-[100%] block border border-gray-300 px-3 py-2 rounded-[5px] my-2 placeholder:text-gray-400
+.contact-input {
+  @apply focus-visible:outline-[#1c799b] w-[100%] block border border-gray-300 px-3 py-2 rounded-[5px] my-2 placeholder:text-gray-400;
 }
-.text-primary{
+.text-primary {
   @apply text-[#1c799b];
 }
-.btn-hover:hover{
-  @apply text-[#1c799b] bg-[#e3f4fa] border border-[#1c799b]; 
+.btn-hover:hover {
+  @apply text-[#1c799b] bg-[#e3f4fa] border border-[#1c799b];
 }
-.btn-hover{
+.btn-hover {
   @apply transition-all duration-300 cursor-pointer;
+}
+.product:hover .wishlist {
+  @apply visible opacity-100 scale-100;
+}
+.wishlist {
+  @apply md:invisible visible   md:scale-0 active:bg-[#1c799b]  duration-300 p-2 border border-[#1c799b] rounded-full flex justify-center items-center cursor-pointer active:scale-110 active:text-white;
 }

@@ -347,7 +347,7 @@ export class ProductService {
     },
     {
       Id: 22,
-      Name: 'White Slice Bread',
+      Name: 'Bonn Bread White Bread - Soft & Nutritious',
       Price: 43,
       OfferPrice: 12,
       Rating: 3.6,

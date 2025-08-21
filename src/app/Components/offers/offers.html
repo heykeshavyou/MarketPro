@@ -1,0 +1,108 @@
+<div class="p-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div
+      class="md:grid-cols-2 grid rounded-2xl bg-[#b0a8f422] px-5"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+      data-aos-once="true"
+    >
+      <div class="flex justify-center items-center">
+        <img src="/Bgproduct5.png" width="250px" />
+      </div>
+      <div class="flex flex-col justify-center p-2">
+        <p class="text-2xl quicksand font-black mb-2 text-hover">
+          {{ Products[0].Name }}
+        </p>
+        <p class="text-gray-400 text-[14px] mb-2">
+          Time remaining until the end of the offer.
+        </p>
+        <div
+          class="quicksand font-bold text-[14px] flex gap-1.5 items-center mb-2"
+        >
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.hour() | number : "2.0-0" }} H
+          </span>
+          <span> : </span>
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.min() | number : "2.0-0" }} M
+          </span>
+          <span> : </span>
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.sec() | number : "2.0-0" }} S
+          </span>
+        </div>
+        <div class="mb-2">
+          <a [routerLink]="['/product', Products[0].Id]">
+            <button class="btn flex items-center gap-2.5 justify-center">
+              Shop
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                />
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="md:grid-cols-2 grid rounded-2xl bg-[#e380302f] px-5"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+      data-aos-once="true"
+    >
+      <div class="flex flex-col justify-center p-2 md:order-1 order-2">
+        <p class="text-2xl quicksand font-black mb-2 text-hover">
+          {{ Products[1].Name }}
+        </p>
+        <p class="text-gray-400 text-[14px] mb-2">
+          Time remaining until the end of the offer.
+        </p>
+        <div
+          class="quicksand font-bold text-[14px] flex gap-1.5 items-center mb-2"
+        >
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.hour() | number : "2.0-0" }} H
+          </span>
+          <span> : </span>
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.min() | number : "2.0-0" }} M
+          </span>
+          <span> : </span>
+          <span class="bg-white rounded-[5px] p-2">
+            {{ Timer.sec() | number : "2.0-0" }} S
+          </span>
+        </div>
+        <div class="mb-2">
+          <a [routerLink]="['/product', Products[1].Id]">
+            <button class="btn flex items-center gap-2.5 justify-center">
+              Shop
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                />
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="flex justify-center items-center md:order-2 order-1">
+        <img src="/Bgproduct22.png" width="250px" />
+      </div>
+    </div>
+  </div>
+</div>
