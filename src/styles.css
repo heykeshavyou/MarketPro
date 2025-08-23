@@ -111,3 +111,9 @@ body {
 .wishlist {
   @apply md:invisible visible   md:scale-0 active:bg-[#1c799b]  duration-300 p-2 border border-[#1c799b] rounded-full flex justify-center items-center cursor-pointer active:scale-110 active:text-white;
 }
+.btn-green{
+  @apply flex gap-2 items-center bg-[#2ABC79] transition-all duration-300 cursor-pointer active:scale-110 text-white px-4 py-2 rounded-full hover:bg-[#15803D]
+}
+.btn-primary{
+  @apply flex gap-2 items-center bg-[#fff] transition-all duration-300 cursor-pointer active:scale-110 text-black hover:text-white px-4 py-2 rounded-full hover:bg-[#17607A]
+}

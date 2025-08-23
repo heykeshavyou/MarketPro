@@ -3,10 +3,10 @@ import { ProductService } from '../../Services/product-service';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CommonModule } from '@angular/common';
 import Product from '../../Models/Product';
-import { RouterLink } from '@angular/router';
+import { ProductCard } from "../ProductCard";
 @Component({
   selector: 'app-flash-sale',
-  imports: [SlickCarouselModule, CommonModule,RouterLink],
+  imports: [SlickCarouselModule, CommonModule, ProductCard],
   templateUrl: './flash-sale.html',
   styleUrl: './flash-sale.css'
 })
@@ -21,7 +21,7 @@ export class FlashSale implements OnInit{
     this.Product=this.ProductService.Products.filter(x=>x.OfferPrice<1000&&x.Id!=this.ProductId);
   }
     slideConfig = {
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     dots: false,
     infinite: true,

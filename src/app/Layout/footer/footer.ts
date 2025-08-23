@@ -35,7 +35,7 @@ export class Footer {
     {
       title: 'My Account',
       sublinks: [
-        { name: 'My Account', route: 'My Account' },
+        { name: 'My Account', route: 'profile' },
         { name: 'Order History', route: 'Order History' },
         { name: 'Shopping Cart', route: 'cart' },
         { name: 'Compare', route: 'Compare' },
