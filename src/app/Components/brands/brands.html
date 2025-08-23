@@ -1,0 +1,12 @@
+<div class="m-10">
+  <h1 class="quicksand font-extrabold text-3xl mb-4">Shop by Brands</h1>
+  <div class="">
+    <ngx-slick-carousel [config]="slideConfig" >
+      @for (item of Img; track $index) {
+      <div ngxSlickItem class="m-3">
+        <img [src]="item" alt=""  width="150" />
+      </div>
+      }
+    </ngx-slick-carousel>
+  </div>
+</div>

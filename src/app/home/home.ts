@@ -7,10 +7,12 @@ import { Offers } from "../Components/offers/offers";
 import { Reccommended } from "../Components/reccommended/reccommended";
 import { Offers2 } from "../Components/offers2/offers2";
 import { HotDeals } from "../Components/hot-deals/hot-deals";
+import { Offers3 } from "../Components/offers3/offers3";
+import { Brands } from "../Components/brands/brands";
 
 @Component({
   selector: 'app-home',
-  imports: [Banner, Category, Features, FlashSale, Offers, Reccommended, Offers2, HotDeals],
+  imports: [Banner, Category, Features, FlashSale, Offers, Reccommended, Offers2, HotDeals, Offers3, Brands],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
