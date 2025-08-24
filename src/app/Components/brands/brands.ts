@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-brands',
-  imports: [SlickCarouselModule],
+  imports: [SlickCarouselModule, RouterLink],
   templateUrl: './brands.html',
   styleUrl: './brands.css',
 })
@@ -29,6 +30,6 @@ export class Brands {
     variableWidth: true,
     speed: 300,
     pauseOnHover: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
   };
 }

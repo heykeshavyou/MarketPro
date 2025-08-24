@@ -1,10 +1,15 @@
 <div class="m-10">
-  <h1 class="quicksand font-extrabold text-3xl mb-4">Shop by Brands</h1>
-  <div class="">
+  <div class="flex justify-between items-center">
+      <h1 class="quicksand font-extrabold text-3xl mb-4">Shop by Brands</h1>
+      <a routerLink="/shop" class="text-[14px] hover:underline hover:text-[#1c799b]">
+        View All Deals
+      </a>
+  </div>
+  <div class="my-5">
     <ngx-slick-carousel [config]="slideConfig" >
       @for (item of Img; track $index) {
-      <div ngxSlickItem class="m-3">
-        <img [src]="item" alt=""  width="150" />
+      <div ngxSlickItem class="m-2.5" data-aos="fade-up" data-aos-once="true" [attr.data-aos-delay]="$index*100">
+        <img [src]="item" alt=""  class="md:w-37.5 w-21.25" />
       </div>
       }
     </ngx-slick-carousel>
