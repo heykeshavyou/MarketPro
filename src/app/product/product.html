@@ -185,7 +185,7 @@
     </div>
     <p class="text-[14px] my-2">Available only: {{ product?.Quantity }}</p>
     <div class="my-5 flex justify-between items-center">
-      @if (productService.IFCart(product?.Id ?? 0)) {
+      @if (productService.IsAlreadyInCart(product?.Id ?? 0)) {
       <button
         class="bg-[#e3f4fa] scale-110 flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
       >
@@ -200,7 +200,7 @@
         >
           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
         </svg>
-        <span>{{ productService.GetCartProduct(product?.Id ?? 0) }}</span>
+        <span>{{ productService.GetCartProductQuantity(product?.Id ?? 0) }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

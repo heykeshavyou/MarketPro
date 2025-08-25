@@ -62,7 +62,7 @@
       <div class="mt-2.5 mr-2.5">
         <button
           [ngClass]="{
-            'text-white bg-[#1c799b]  ': ProductService.AvailableInWishlist(
+            'text-white bg-[#1c799b]  ': ProductService.IsAlreadyInWishlist(
               item.Id
             )
           }"
@@ -139,7 +139,7 @@
         </div>
       </a>
       <div class="mt-4">
-        @if (ProductService.IFCart(item.Id)) {
+        @if (ProductService.IsAlreadyInCart(item.Id)) {
         <button
           class="bg-gray-300 text-[14px] justify-between flex items-center w-[100%] rounded-[5px] cursor-pointer transition-all duration-300 font-medium text-[#000]"
         >
@@ -161,7 +161,7 @@
             </svg>
           </button>
 
-          <span>{{ ProductService.GetCartProduct(item.Id) }}</span>
+          <span>{{ ProductService.GetCartProductQuantity(item.Id) }}</span>
           <button
             class="hover:text-white active:scale-110 hover:bg-[#1c799b] p-3 rounded-r-[5px]"
             (click)="ProductService.AddToCart(item.Id, 1)"

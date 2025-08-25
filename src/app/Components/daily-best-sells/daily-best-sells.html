@@ -1,10 +1,10 @@
 <h1 class="quicksand font-extrabold text-3xl mb-4 mx-10">Daily Best Sells</h1>
-<div class="grid lg:grid-cols-3 lg:grid-rows-2 gap-5 p-5">
+<div class="grid lg:grid-cols-3 lg:grid-rows-2 gap-5 p-5 lg:grid-flow-col">
   @for (item of Products; track $index) {
   <div
     data-aos-once="true"
     data-aos="fade-up"
-    [attr.data-aos-delay]="$index"
+    [attr.data-aos-delay]="($index+1)*100"
     [ngClass]="[($index==2)?`lg:order-${$index+3} order-${$index+1}`:`order-${$index+1}`]"
     class="border-gray-300 product grid-cols-2 grid rounded-2xl border-1 hover:border-[#1c799b] p-5 row-span-1"
   >
@@ -84,7 +84,7 @@
         </div>
       </a>
       <div class="mt-4">
-              @if (ProductService.IFCart(item.Id)) {
+              @if (ProductService.IsAlreadyInCart(item.Id)) {
       <button
         class="bg-[#e3f4fa] w-[100%] flex items-center justify-between gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
       >
@@ -99,7 +99,7 @@
         >
           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
         </svg>
-        <span>{{ ProductService.GetCartProduct(item.Id) }}</span>
+        <span>{{ ProductService.GetCartProductQuantity(item.Id) }}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -141,6 +141,10 @@
   }
 
   <div
+
+    data-aos-once="true"
+    data-aos="fade-up"
+    data-aos-delay="500"
     class="lg:row-span-2 rounded-2xl lg:order-3 order-5 p-10  relative  "
   >
   <div >
@@ -175,5 +179,6 @@
           </svg>
         </button>
       </a>
-    </div></div>
+      </div>
+  </div>
 </div>

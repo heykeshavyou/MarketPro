@@ -7,7 +7,7 @@
     @for (item of ProductService.Categories; track $index) {
 
     <div ngxSlickItem class="m-4 cursor-pointer">
-      <a [routerLink]="['/shop',{id:item.Id}]">
+      <a [routerLink]="['/shop',item.Id]">
       <div
         class="size-[140px] p-4 rounded-full flex justify-center items-center"
         [ngClass]="item.Color"

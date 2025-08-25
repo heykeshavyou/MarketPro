@@ -16,7 +16,7 @@ import { RouterLink } from "@angular/router";
           <div class="flex justify-between items-center z-10">
             <button
               [ngClass]="{
-                'text-white bg-[#1c799b]': ProductService.AvailableInWishlist(
+                'text-white bg-[#1c799b]': ProductService.IsAlreadyInWishlist(
                   item.Id
                 )
               }"
@@ -36,7 +36,7 @@ import { RouterLink } from "@angular/router";
                 />
               </svg>
             </button>
-            @if (ProductService.IFCart(item.Id)) {
+            @if (ProductService.IsAlreadyInCart(item.Id)) {
             <button
               class="bg-[#e3f4fa] flex items-center gap-2.5 rounded-full cursor-pointer hover:bg-[#1c799b] hover:text-white transition-all duration-300 font-medium text-[#1c799b] px-4 py-1"
             >
@@ -53,7 +53,7 @@ import { RouterLink } from "@angular/router";
                   d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"
                 />
               </svg>
-              <span>{{ ProductService.GetCartProduct(item.Id) }}</span>
+              <span>{{ ProductService.GetCartProductQuantity(item.Id) }}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

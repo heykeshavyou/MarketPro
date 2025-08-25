@@ -20,14 +20,15 @@ export class Shop implements OnInit {
     private _route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this._route.params.subscribe((item) => {
-      if (item['id'] == undefined) {
+    this._route.paramMap.subscribe((item) => {
+      const id=item.get('id');
+      if (item.get('id') === null) {
         this.ProductList = this.productService.Products.sort(
           (a, b) => b.RatingCount - a.RatingCount
         );
       } else {
         this.ProductList = this.productService.Products.filter(
-          (x) => x.CategoryId == item['id']
+          (x) => x.CategoryId == Number(id)
         ).sort((a, b) => b.RatingCount - a.RatingCount);
       }
       this.sortValue.set(1);

@@ -88,7 +88,7 @@
           <div class="flex justify-between items-center z-10">
             <button
               [ngClass]="{
-                'text-white bg-[#1c799b]': productService.AvailableInWishlist(
+                'text-white bg-[#1c799b]': productService.IsAlreadyInWishlist(
                   item.Id
                 )
               }"
@@ -165,7 +165,7 @@
             </div>
           </a>
           <div class="mt-4">
-            @if (productService.IFCart(item.Id)) {
+            @if (productService.IsAlreadyInCart(item.Id)) {
             <button
               class="bg-gray-300 text-[14px] justify-between flex items-center w-[100%] rounded-[5px] cursor-pointer transition-all duration-300 font-medium text-[#000]"
             >
@@ -187,7 +187,7 @@
                 </svg>
               </button>
 
-              <span>{{ productService.GetCartProduct(item.Id) }}</span>
+              <span>{{ productService.GetCartProductQuantity(item.Id) }}</span>
               <button
                 class="hover:text-white active:scale-110 hover:bg-[#1c799b] p-3 rounded-r-[5px]"
                 (click)="productService.AddToCart(item.Id, 1)"
@@ -299,7 +299,7 @@
         <p class="my-4 text-hover quicksand font-black">All Categories</p>
       </a>
       @for (item of productService.Categories; track $index) {
-      <a [routerLink]="['/shop', { id: item.Id }]">
+      <a [routerLink]="['/shop', item.Id ]">
         <p class="my-4 text-hover quicksand font-extrabold">{{ item.Name }}</p>
       </a>
       }

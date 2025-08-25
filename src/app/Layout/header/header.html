@@ -140,7 +140,7 @@
                 </svg>
                 <span
                   class="text-[10px] size-4 absolute bottom-3 left-3 bg-[#1C799B] text-white p-1 rounded-full flex justify-center items-center"
-                  >{{ ProductService.WishlistCount() }}</span
+                  >{{ ProductService.Wishlist.length }}</span
                 >
               </div>
               <p class="hidden sm:block">Wishlist</p>
@@ -163,7 +163,7 @@
                 </svg>
                 <span
                   class="text-[10px] size-4 absolute bottom-3 left-3 bg-[#1C799B] text-white p-1 rounded-full flex justify-center items-center"
-                  >{{ ProductService.CartCount() }}</span
+                  >{{ ProductService.Cart.length }}</span
                 >
               </div>
               <p class="hidden sm:block">Cart</p>
@@ -213,7 +213,7 @@
             class="invisible border-1 border-[#BBF7D0] opacity-0 translate-y-10 grid grid-cols-3 p-2 broswer-drop-menu bg-white shadow-2xl duration-300 transition-all absolute z-1 rounded-[10px] text-[12px] font-medium"
           >
             @for (item of ProductService.Categories; track $index) {
-            <a [routerLink]="['shop', { id: item.Id }]">
+            <a [routerLink]="['shop', item.Id ]">
               <div
                 class="p-5 size-[126px] rounded-[10px] justify-center items-center flex flex-col hover:bg-[#e3f4fa] hover:border hover:border-[#1c799b]"
               >

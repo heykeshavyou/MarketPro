@@ -9,9 +9,11 @@
     >
       @if(ProductService.Cart.length>0){
       <div class="border-1 border-gray-300 rounded-[10px] p-4">
-        @for (item of ProductService.CartProduct; track $index) {
+        @for (cartitem of ProductService.Cart; track $index;let isLast=$last;){
+          @if(ProductService.GetProductById(cartitem.ProductId); as item){
         <div
-          class="m-2 my-4 border-b-1 border-b-gray-300 md:p-3 py-3 grid lg:grid-cols-2 grid-cols-1"
+        [ngClass]="[(!isLast)?'border-b-1 border-b-gray-300':'']"
+          class="m-2 my-4  md:p-3 py-3 grid lg:grid-cols-2 grid-cols-1"
         >
           <a [routerLink]="['/product', item.Id]">
             <div class="flex items-center">
@@ -101,7 +103,7 @@
                   <span
                     class="flex items-center w-[100%] h-[100%] justify-center"
                   >
-                    {{ ProductService.GetCartProduct(item.Id) }}
+                    {{ ProductService.GetCartProductQuantity(item.Id) }}
                   </span></span
                 >
                 <div
@@ -157,6 +159,8 @@
             </div>
           </div>
         </div>
+          }
+
         }
       </div>
       }

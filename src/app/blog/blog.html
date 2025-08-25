@@ -7,7 +7,7 @@
         <button
           class="quicksand p-2 text-[#1c799b] font-black my-3 rounded-[5px] bg-[#e3f4fa] text-[14px]"
         >
-          <a [routerLink]="['/shop', { id: 6 }]"> Phones & Gadgets </a>
+          <a [routerLink]="['/shop',  6 ]"> Phones & Gadgets </a>
         </button>
       </div>
       <div>
@@ -190,7 +190,7 @@
           <div
             class="border border-gray-300 p-2 hover:bg-gray-300 transition-all duration-300 rounded-[5px] text-[14px]"
           >
-            <a [routerLink]="['/shop', { id: 5 }]"> Electronics </a>
+            <a [routerLink]="['/shop',  5]"> Electronics </a>
           </div>
         </div>
         <hr class="mt-6 text-gray-300" />
@@ -343,7 +343,7 @@
           <h1 class="quicksand font-black">Categories</h1>
         </div>
         @for (item of productService.Categories; track $index) {
-        <a [routerLink]="['/shop', { id: item.Id }]">
+        <a [routerLink]="['/shop',  item.Id ]">
           <div
             class="border border-gray-300 p-1 cursor-pointer items-center rounded-[5px] my-3 text-[14px] hover:border-[#1c799b] transition-all duration-200 hover:text-[#1c799b] flex justify-between"
           >

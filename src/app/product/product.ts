@@ -71,7 +71,7 @@ export class Product implements OnInit {
   }
 
   ClassDefine(id: number) {
-    if (this.productService.AvailableInWishlist(id)) {
+    if (this.productService.IsAlreadyInWishlist(id)) {
       return 'text-white bg-[#1c799b] ';
     }
     return 'text-[#1c799b] bg-[#e3f4fA]';

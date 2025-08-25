@@ -9,9 +9,6 @@ import Product from '../Models/Product';
 export class ProductService {
   Cart: Cart[] = this.GetSavedData();
   Wishlist: Product[] = this.GetWishListData();
-  CartProduct: Product[] = [];
-  CartCount = signal(this.Cart.length);
-  WishlistCount = signal(this.Wishlist.length);
   SubTotal = signal(0);
   Delivery = signal((this.SubTotal() * 10) / 100);
   Taxs = signal((this.SubTotal() * 18) / 100);
@@ -664,8 +661,7 @@ export class ProductService {
     } else {
       this.Wishlist.push(product);
     }
-    this.WishlistCount.set(this.Wishlist.length);
-    this.SaveCartLocalStorage();
+    this.SaveToLocalStorage();
   }
 
   AddToCart(Id: number, Quantity: number) {
@@ -682,12 +678,10 @@ export class ProductService {
       };
       this.Cart.push(cart);
     }
-    this.CartCount.set(this.Cart.length);
-    this.GetCartItem();
-    this.SaveCartLocalStorage();
+    this.SaveToLocalStorage();
     this.GetCartTotal();
   }
-  GetCartProduct(id: number) {
+  GetCartProductQuantity(id: number) {
     let item = this.Cart.find((x) => x.ProductId == id);
     return item?.Quantity;
   }
@@ -695,22 +689,14 @@ export class ProductService {
     let item = this.Categories.find((x) => x.Id == id);
     return item?.Name;
   }
-  GetCartItem() {
-    this.CartProduct = [];
-    this.Cart.forEach((element) => {
-      let item = this.Products.find((x) => x.Id == element.ProductId);
-      if (item) {
-        this.CartProduct.push(item);
-      }
-    });
-  }
   RemoveItem(id: number) {
     let index = this.Cart.findIndex((x) => x.ProductId == id);
     this.Cart.splice(index, 1);
-    this.CartCount.set(this.Cart.length);
-    this.GetCartItem();
-    this.SaveCartLocalStorage();
+    this.SaveToLocalStorage();
     this.GetCartTotal();
+  }
+  GetProductById(id:number){
+    return this.Products.find(x=>x.Id==id);
   }
   GetProductSubTotal(id: number) {
     let CategoryItem = this.Cart.find((x) => x.ProductId == id);
@@ -719,7 +705,7 @@ export class ProductService {
       ? 0
       : CategoryItem?.Quantity * ProductItem?.OfferPrice;
   }
-  SaveCartLocalStorage() {
+  SaveToLocalStorage() {
     let data = JSON.stringify(this.Cart);
     let wishlist = JSON.stringify(this.Wishlist);
     localStorage.setItem('Cart', data);
@@ -738,10 +724,10 @@ export class ProductService {
   GetCartTotal() {
     let subtotal = 0;
     let total = 0;
-    this.CartProduct.forEach((item) => {
-      var quantity = this.Cart.find((x) => x.ProductId == item.Id)?.Quantity;
-      subtotal += quantity == null ? 0 : quantity * item.OfferPrice;
-      total += quantity == null ? 0 : quantity * item.Price;
+    this.Cart.forEach((item) => {
+      let product= this.GetProductById(item.ProductId);
+      subtotal += item.Quantity == null ? 0 : item.Quantity * (product?.OfferPrice??0);
+      total += item.Quantity == null ? 0 : item.Quantity * (product?.Price??0);
     });
     this.SubTotal.set(subtotal);
     this.Discount.set(total - subtotal);
@@ -749,19 +735,11 @@ export class ProductService {
     this.Taxs.set((subtotal * 18) / 100);
     this.Total.set(this.SubTotal() + this.Taxs() + this.Delivery());
   }
-  IFCart(id: number) {
+  IsAlreadyInCart(id: number) {
     var isCart = this.Cart.findIndex((x) => x.ProductId == id);
     return isCart == -1 ? false : true;
   }
-  AvailableInWishlist(id: number) {
+  IsAlreadyInWishlist(id: number) {
     return this.Wishlist.findIndex((x) => x.Id == id) == -1 ? false : true;
-  }
-  RemoveItemWish(id: number) {
-    this.Wishlist.splice(
-      this.Wishlist.findIndex((x) => x.Id == id),
-      1
-    );
-    this.WishlistCount.set(this.Wishlist.length);
-    this.SaveCartLocalStorage();
   }
 }

@@ -156,7 +156,7 @@
           </span> 
         </div>
         <div class="mt-4">
-        @if (ProductService.IFCart(DealProduct?.Id??0)) {
+        @if (ProductService.IsAlreadyInCart(DealProduct?.Id??0)) {
         <button
           class="bg-gray-300 text-[14px] justify-between flex items-center w-[100%] rounded-[5px] cursor-pointer transition-all duration-300 font-medium text-[#000]"
         >
@@ -178,7 +178,7 @@
             </svg>
           </button>
 
-          <span>{{ ProductService.GetCartProduct(DealProduct?.Id??0) }}</span>
+          <span>{{ ProductService.GetCartProductQuantity(DealProduct?.Id??0) }}</span>
           <button
             class="hover:text-white active:scale-110 hover:bg-[#2abc79] p-3 rounded-r-[5px]"
             (click)="ProductService.AddToCart(DealProduct?.Id??0, 1)"

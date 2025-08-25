@@ -14,6 +14,7 @@ export const routes: Routes = [
   { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
   { path: 'product/:id', component: Product},
   {path : 'shop',component:Shop,title:'Shop'},
+  {path : 'shop/:id',component:Shop,title:'Shop'},
   {path:'blog',component:Blog,title:'Blog'},
   {path:'vendors',component:Vendors,title:"Vendors"},
   {path:'profile',component:Profile,title:"Profile"},
