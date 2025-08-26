@@ -682,12 +682,10 @@ export class ProductService {
     this.GetCartTotal();
   }
   GetCartProductQuantity(id: number) {
-    let item = this.Cart.find((x) => x.ProductId == id);
-    return item?.Quantity;
+    return this.Cart.find((x) => x.ProductId == id)?.Quantity;
   }
   GetCategoryName(id: number) {
-    let item = this.Categories.find((x) => x.Id == id);
-    return item?.Name;
+    return this.Categories.find((x) => x.Id == id)?.Name;
   }
   RemoveItem(id: number) {
     let index = this.Cart.findIndex((x) => x.ProductId == id);
@@ -711,12 +709,12 @@ export class ProductService {
     localStorage.setItem('Cart', data);
     localStorage.setItem('Wish', wishlist);
   }
-  GetSavedData() {
+  GetSavedData():Cart[] {
     let res = localStorage.getItem('Cart');
     let data: Cart[] = res ? JSON.parse(res) : [];
     return data;
   }
-  GetWishListData() {
+  GetWishListData():Product[] {
     let res = localStorage.getItem('Wish');
     let data: Product[] = res ? JSON.parse(res) : [];
     return data;
@@ -735,11 +733,10 @@ export class ProductService {
     this.Taxs.set((subtotal * 18) / 100);
     this.Total.set(this.SubTotal() + this.Taxs() + this.Delivery());
   }
-  IsAlreadyInCart(id: number) {
-    var isCart = this.Cart.findIndex((x) => x.ProductId == id);
-    return isCart == -1 ? false : true;
+  IsAlreadyInCart(id: number):boolean {
+    return this.Cart.findIndex((x) => x.ProductId == id) == -1 ? false : true;
   }
-  IsAlreadyInWishlist(id: number) {
+  IsAlreadyInWishlist(id: number):boolean {
     return this.Wishlist.findIndex((x) => x.Id == id) == -1 ? false : true;
   }
 }
