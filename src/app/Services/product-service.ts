@@ -11,7 +11,7 @@ export class ProductService {
   Wishlist: Product[] = this.GetWishListData();
   SubTotal = signal(0);
   Delivery = signal((this.SubTotal() * 10) / 100);
-  Taxs = signal((this.SubTotal() * 18) / 100);
+  Taxes = signal((this.SubTotal() * 18) / 100);
   Discount = signal(0);
   Total = signal(0);
   Categories: Category[] = [
@@ -730,8 +730,8 @@ export class ProductService {
     this.SubTotal.set(subtotal);
     this.Discount.set(total - subtotal);
     this.Delivery.set((subtotal * 5) / 100);
-    this.Taxs.set((subtotal * 18) / 100);
-    this.Total.set(this.SubTotal() + this.Taxs() + this.Delivery());
+    this.Taxes.set((subtotal * 18) / 100);
+    this.Total.set(this.SubTotal() + this.Taxes() + this.Delivery());
   }
   IsAlreadyInCart(id: number):boolean {
     return this.Cart.findIndex((x) => x.ProductId == id) == -1 ? false : true;

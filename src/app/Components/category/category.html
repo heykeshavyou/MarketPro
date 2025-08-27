@@ -6,7 +6,7 @@
   <ngx-slick-carousel [config]="slideConfig">
     @for (item of ProductService.Categories; track $index) {
 
-    <div ngxSlickItem class="m-4 cursor-pointer">
+    <div ngxSlickItem class="m-4 cursor-pointer" data-aos="zoom-in" [attr.data-aos-delay]="50*($index+1)" data-aos-once="true">
       <a [routerLink]="['/shop',item.Id]">
       <div
         class="size-[140px] p-4 rounded-full flex justify-center items-center"

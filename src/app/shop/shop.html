@@ -299,7 +299,7 @@
         <p class="my-4 text-hover quicksand font-black">All Categories</p>
       </a>
       @for (item of productService.Categories; track $index) {
-      <a [routerLink]="['/shop', item.Id ]">
+      <a [routerLink]="['/shop', item.Id ]" (click)="SetHeader()">
         <p class="my-4 text-hover quicksand font-extrabold">{{ item.Name }}</p>
       </a>
       }

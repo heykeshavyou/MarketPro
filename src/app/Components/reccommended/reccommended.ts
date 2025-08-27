@@ -17,7 +17,7 @@ export class Reccommended {
   Products: Product[] = [];
   constructor(public ProductService: ProductService) {
     this.Categories = ProductService.Categories;
-    this.Products = ProductService.Products.filter((x) => x.Id <= 10);
+    this.Products = ProductService.Products.filter((x) => x.Id <= 12);
   }
   ChangeProducts(id: number) {
     this.SelectedCategory.set(id);
@@ -26,7 +26,7 @@ export class Reccommended {
         (x) => x.CategoryId == id
       );
     } else {
-      this.Products = this.ProductService.Products.filter((x) => x.Id <= 10);
+      this.Products = this.ProductService.Products.filter((x) => x.Id <= 12);
     }
   }
 }

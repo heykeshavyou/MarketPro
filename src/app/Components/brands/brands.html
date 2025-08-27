@@ -8,7 +8,7 @@
   <div class="my-5">
     <ngx-slick-carousel [config]="slideConfig" >
       @for (item of Img; track $index) {
-      <div ngxSlickItem class="m-2.5" data-aos="fade-up" data-aos-once="true" [attr.data-aos-delay]="$index*100">
+      <div ngxSlickItem class="m-2.5" data-aos="zoom-in" data-aos-once="true" [attr.data-aos-delay]="$index*100" [attr.data-aos-duration]="600+($index*100)">
         <img [src]="item" alt=""  class="md:w-37.5 w-21.25" />
       </div>
       }

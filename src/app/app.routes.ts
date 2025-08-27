@@ -18,5 +18,6 @@ export const routes: Routes = [
   {path:'blog',component:Blog,title:'Blog'},
   {path:'vendors',component:Vendors,title:"Vendors"},
   {path:'profile',component:Profile,title:"Profile"},
-  {path:"contact",loadComponent:()=>import('./contact/contact').then(m=>m.Contact),title:'Contact Us'}
+  {path:"contact",loadComponent:()=>import('./contact/contact').then(m=>m.Contact),title:'Contact Us'},
+  {path:"**",component:Home}
 ];

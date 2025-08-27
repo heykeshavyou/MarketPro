@@ -11,7 +11,7 @@ import { RouterLink } from "@angular/router";
           data-aos-once="true"
           data-aos="fade-up"
           [attr.data-aos-delay]="index"
-          class="border-gray-300 rounded-2xl border-1 hover:border-[#1c799b] p-5"
+          class="border-gray-300 product rounded-2xl border-1 hover:border-[#1c799b] p-5"
         >
           <div class="flex justify-between items-center z-10">
             <button
@@ -21,7 +21,7 @@ import { RouterLink } from "@angular/router";
                 )
               }"
               (click)="ProductService.AddToWishlist(item)"
-              class="hover:bg-[#1c799b] duration-300 p-2 border border-[#1c799b] rounded-full flex justify-center items-center hover:text-white"
+              class=" wishlist"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
