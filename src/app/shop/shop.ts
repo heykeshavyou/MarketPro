@@ -1,13 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ProductService } from '../Services/product-service';
 import Product from '../Models/Product';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BreadCrumb } from "../Components/bread-crumb/bread-crumb";
+import { ProductCard2 } from '../Components/ProdcutCard2';
 
 @Component({
   selector: 'app-shop',
-  imports: [RouterLink, CommonModule, BreadCrumb],
+  imports: [RouterLink, CommonModule, BreadCrumb,RouterLinkActive,ProductCard2],
   templateUrl: './shop.html',
   styleUrl: './shop.css',
 })

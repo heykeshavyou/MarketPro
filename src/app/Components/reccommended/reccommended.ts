@@ -3,11 +3,11 @@ import { ProductService } from '../../Services/product-service';
 import Category from '../../Models/Category';
 import { CommonModule } from '@angular/common';
 import Product from '../../Models/Product';
-import { RouterLink } from '@angular/router';
+import { ProductCard2 } from '../ProdcutCard2';
 
 @Component({
   selector: 'app-reccommended',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule,ProductCard2],
   templateUrl: './reccommended.html',
   styleUrl: './reccommended.css',
 })

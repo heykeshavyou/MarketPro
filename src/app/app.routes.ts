@@ -9,7 +9,7 @@ import { Vendors } from './vendors/vendors';
 import { Profile } from './profile/profile';
 
 export const routes: Routes = [
-  { path: '', component: Home, title: 'Home',pathMatch:'full' },
+  { path: '', component: Home, title: 'Home',pathMatch:'prefix' },
   { path: 'cart', component: Cart, title: 'Cart' },
   { path: 'wishlist', component: Wishlist, title: 'Wishlist' },
   { path: 'product/:id', component: Product},

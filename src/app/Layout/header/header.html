@@ -213,7 +213,7 @@
             class="invisible border-1 border-[#BBF7D0] opacity-0 translate-y-10 grid grid-cols-3 p-2 broswer-drop-menu bg-white shadow-2xl duration-300 transition-all absolute z-1 rounded-[10px] text-[12px] font-medium"
           >
             @for (item of ProductService.Categories; track $index) {
-            <a [routerLink]="['shop', item.Id ]">
+            <a [routerLink]="['shop', item.Id ]" >
               <div
                 class="p-5 size-[126px] rounded-[10px] justify-center items-center flex flex-col hover:bg-[#e3f4fa] hover:border hover:border-[#1c799b]"
               >
@@ -234,8 +234,8 @@
       <div class="hidden font-medium text-[#2d2727] text-[13px] md:flex">
         @for (item of NavigationLinks; track $index) {
         <div class="mx-3 link-drop relative">
-          <div class="link-text flex items-center gap-x-2 cursor-pointer">
-            <p class="">{{ item.name }}</p>
+          <div [routerLink]="item.links[0].route" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact:true}" class="link-text flex items-center gap-x-2 cursor-pointer">
+            <p class=""  >{{ item.name }}</p>
             @if (item.new) {
             <div
               class="tooltip left-4 bg-amber-300 p-1 rounded-[5px] animate-bounce absolute bottom-5"
@@ -261,7 +261,7 @@
             class="bg-white shadow-2xl min-w-43 p-2 rounded-[5px] absolute z-2 link-menu duration-300 transition-all invisible opacity-0 translate-y-10"
           >
             @for(link of item.links;track $index){
-            <a [routerLink]="link.route" routerLinkActive="text-primary">
+            <a [routerLink]="link.route" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact:true}">
               <li
                 class="my-2 mx-1 p-2 hover:bg-gray-300 rounded-[5px] cursor-pointer"
               >

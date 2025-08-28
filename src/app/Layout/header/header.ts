@@ -3,7 +3,6 @@ import { TimerService } from '../../Services/timer-service';
 import { interval, Subscription } from 'rxjs';
 import { Select2, Select2Data, Select2Option } from 'ng-select2-component';
 import { CommonModule } from '@angular/common';
-import { HomeDesignService } from '../../Services/home-design-service';
 import {  RouterLink, RouterLinkActive } from '@angular/router';
 import { ProductService } from '../../Services/product-service';
 
