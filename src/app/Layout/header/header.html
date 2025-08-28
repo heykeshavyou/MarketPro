@@ -25,7 +25,7 @@
         data-aos="fade-up"
         class="shadow rounded-[5px] w-30 transition-all duration-300 drop-menu z-10 invisible opacity-0 translate-y-10 block right-[-10px] absolute p-3 bg-white text-black"
       >
-        @for (item of HomeDesign.language; track $index) {
+        @for (item of language; track $index) {
         <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
           <img [src]="item.img" width="20" class="shadow" /> {{ item.name }}
         </li>
@@ -38,7 +38,7 @@
         data-aos="fade-up"
         class="shadow rounded-[5px] w-30 transition-all duration-300 invisible opacity-0 translate-y-10 drop-menu z-10 block right-0 absolute p-3 bg-white text-black"
       >
-        @for (item of HomeDesign.currency; track $index) {
+        @for (item of currency; track $index) {
         <li class="flex items-center gap-1.5 cursor-pointer hover:bg-gray-200">
           <img [src]="item.img" width="20" class="shadow" />
           {{ item.name | uppercase }}
@@ -63,7 +63,7 @@
       <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
         <select2
           style="border: none"
-          [data]="HomeDesign.data"
+          [data]="data"
           value="1"
           placeholder="Search"
         >
@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="hidden font-medium text-[#2d2727] text-[13px] md:flex">
-        @for (item of HomeDesign.NavigationLinks; track $index) {
+        @for (item of NavigationLinks; track $index) {
         <div class="mx-3 link-drop relative">
           <div class="link-text flex items-center gap-x-2 cursor-pointer">
             <p class="">{{ item.name }}</p>
@@ -348,7 +348,7 @@
       <div class="w-1/4 border-r-1 p-1 border-r-gray-300">
         <select2
           style="border: none"
-          [data]="HomeDesign.data"
+          [data]="data"
           value="1"
           placeholder="Search"
         >
@@ -398,7 +398,7 @@
   </div>
   <div class="my-5">
     <div class="font-medium text-[#2d2727] text-2xl">
-      @for (item of HomeDesign.NavigationLinks; track $index) {
+      @for (item of NavigationLinks; track $index) {
       <div class="mx-3 link-drop relative my-3">
         <div
           class="link-text flex items-center justify-between gap-x-2 cursor-pointer"

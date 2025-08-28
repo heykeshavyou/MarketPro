@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TimerService } from '../../Services/timer-service';
 import { interval, Subscription } from 'rxjs';
-import { Select2, Select2Data } from 'ng-select2-component';
+import { Select2, Select2Data, Select2Option } from 'ng-select2-component';
 import { CommonModule } from '@angular/common';
 import { HomeDesignService } from '../../Services/home-design-service';
 import {  RouterLink, RouterLinkActive } from '@angular/router';
@@ -15,11 +15,10 @@ import { ProductService } from '../../Services/product-service';
 })
 export class Header implements OnInit {
   private intervalSubscription: Subscription | undefined;
-  data:Select2Data=[];
   RouteName: string = '';
+  data: Select2Data=[]
   constructor(
     public timer: TimerService,
-    public HomeDesign: HomeDesignService,
     public ProductService: ProductService,
   ) {}
   ngOnInit(): void {
@@ -30,7 +29,14 @@ export class Header implements OnInit {
     this.intervalSubscription = interval(1000).subscribe(() => {
       this.timer.Timer();
     });
-
+    this.ProductService.Categories.forEach((item)=>{
+      let model:Select2Option={
+        value:item.Id,
+        label:item.Name,
+        id:item.Id.toString()
+      }
+      this.data.push(model);
+    });
   }
   Search = false;
   searchClass = 'invisible opacity-0 translate-y-10';
@@ -48,15 +54,140 @@ export class Header implements OnInit {
       : 'invisible opacity-0 translate-y-10';
     this.Header = !this.Header;
   }
-  Category = [
-    { name: 'Vegetables', img: '/Category1.jpeg' },
-    { name: 'Milk & Cake', img: '/Category2.jpeg' },
-    { name: 'Grocery', img: '/Category3.jpeg' },
-    { name: 'Beauty', img: '/Category4.jpeg' },
-    { name: 'Wines & Drinks', img: '/Category5.jpeg' },
-    { name: 'Snacks', img: '/Category6.jpeg' },
-    { name: 'Juice', img: '/Category7.jpeg' },
-    { name: 'Fruits', img: '/Category8.jpeg' },
-    { name: 'Tea & Coffee', img: '/Category9.jpeg' },
+    language = [
+    {
+      name: 'Hindi',
+      img: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/500px-Flag_of_India.svg.png',
+    },
+    {
+      name: 'English',
+      img: 'https://cdn.worldvectorlogo.com/logos/united-states-flag.svg',
+    },
+    {
+      name: 'Japanese',
+      img: 'https://cdn.worldvectorlogo.com/logos/flag-of-japan.svg',
+    },
+    {
+      name: 'Chinese',
+      img: 'https://cdn.worldvectorlogo.com/logos/china-flag-1.svg',
+    },
+  ];
+  currency = [
+    {
+      name: 'INR',
+      img: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/500px-Flag_of_India.svg.png',
+    },
+    {
+      name: 'usd',
+      img: 'https://cdn.worldvectorlogo.com/logos/united-states-flag.svg',
+    },
+    {
+      name: 'Yarn',
+      img: 'https://cdn.worldvectorlogo.com/logos/flag-of-japan.svg',
+    },
+    {
+      name: 'yaun',
+      img: 'https://cdn.worldvectorlogo.com/logos/china-flag-1.svg',
+    },
+  ];
+  NavigationLinks = [
+    {
+      name: 'Home',
+      links: [
+        {
+          text: 'Home Grocery',
+          route: '/',
+        },
+        {
+          text: 'Home Electronics',
+          route: '/electronics',
+        },
+        {
+          text: 'Home Fashion',
+          route: '/fashion',
+        },
+      ],
+      new: false,
+    },
+    {
+      name: 'Shop',
+      links: [
+        {
+          text: 'Shop',
+          route: '/shop',
+        },
+        {
+          text: 'Shop Details ',
+          route: '/ShopDetails',
+        },
+        {
+          text: 'Shop Details Two ',
+          route: '/Shopdetailstwo',
+        },
+      ],
+      new: false,
+    },
+    {
+      name: 'Pages',
+      links: [
+        {
+          text: 'Cart',
+          route: '/cart',
+        },
+        {
+          text: 'Wishlist',
+          route: '/wishlist',
+        },
+        {
+          text: 'Checkout',
+          route: '/Checkout',
+        },
+        {
+          text: 'Become Seller',
+          route: '/BecomeSeller',
+        },
+        {
+          text: 'Account',
+          route: '/profile',
+        },
+      ],
+      new: true,
+    },
+    {
+      name: 'Vendors',
+      links: [
+        {
+          text: 'Vendors',
+          route: '/vendors',
+        },
+        {
+          text: 'Vendors Details',
+          route: '/vendordetails',
+        },
+        {
+          text: 'Vendors Two',
+          route: '/vendorstwo',
+        },
+        {
+          text: 'Vendors Two Details',
+          route: '/venderstwodetails',
+        },
+      ],
+      new: true,
+    },
+    {
+      name: 'Blog',
+      links: [
+        {
+          text: 'Blog',
+          route: '/blog',
+        },
+        {
+          text: 'Blog Details',
+          route: '/blogdetails',
+        },
+      ],
+      new: false,
+    },
   ];
 }
