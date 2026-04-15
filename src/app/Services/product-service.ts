@@ -703,7 +703,7 @@ export class ProductService {
       ? 0
       : CategoryItem?.Quantity * ProductItem?.OfferPrice;
   }
-  SaveToLocalStorage() {
+   SaveToLocalStorage() {
     let data = JSON.stringify(this.Cart);
     let wishlist = JSON.stringify(this.Wishlist);
     localStorage.setItem('Cart', data);
